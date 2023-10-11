@@ -55,6 +55,8 @@
                     Set(varCalHoras, 0);
                     Set(varSideMenu, false);
                     Set(band, 0);
+                    Set(varisCont , 0);
+                    Set(varisHeight, 50);
                     
                     If(Gallery1.Selected.MenuID <> 1,
                         Set(varPrin, false);
@@ -433,17 +435,29 @@
 
                     Button4 As button:
                         AlignInContainer: =AlignInContainer.Center
-                        OnSelect: |-
+                        DisplayMode: |-
+                            =//DisplayMode.Edit
+                            If(Or(varaux >= 1, varisCont = 0),
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled
+                            )
+                        Fill: =RGBA(50, 96, 186, 1)
+                        OnSelect: |
                             =Set(varisHeight, 300);
                             Set(varaux , 0);
-                        Text: ="Registrar home office"
+                            Set(varisCont , varisCont + 1);
+                        Text: |
+                            =If(varisCont <= 0,
+                                "Registrar home office",
+                                "Enviar"
+                            )
                         Width: =250
                         ZIndex: =1
 
                     Label8 As label:
                         FontWeight: =FontWeight.Semibold
                         Text: |-
-                            ="A continuación, selecciona los días:  " & varaux
+                            ="A continuación, selecciona los días:  "
                         Width: =350
                         ZIndex: =2
 
