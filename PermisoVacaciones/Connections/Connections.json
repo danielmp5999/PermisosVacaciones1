@@ -1,0 +1,303 @@
+{
+  "505ed6d8-930f-45b9-82c0-65c6de1a53af": {
+    "appActions": [
+      "Manager",
+      "DirectReports"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3403/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "98a4ad57-d925-4491-aacb-4f4ec9dad3ef",
+      "89ca1aa3-9697-4730-b24b-373083fed2e7",
+      "ee6d70fa-beac-445f-8c86-2ee737bdb26f"
+    ],
+    "id": "505ed6d8-930f-45b9-82c0-65c6de1a53af"
+  },
+  "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "84b99b40-200e-4901-953f-64364e9763b4": {
+          "value": "shared_teams"
+        },
+        "d5952d58-afb0-45dc-bf55-f4f43970a50d": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "87fe989e-ec49-461e-9c83-211910dadf10"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+        },
+        "shared_teams": {
+          "value": "84b99b40-200e-4901-953f-64364e9763b4"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "87fe989e-ec49-461e-9c83-211910dadf10"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "RegistroE"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "d5952d58-afb0-45dc-bf55-f4f43970a50d",
+      "shared_teams": "84b99b40-200e-4901-953f-64364e9763b4"
+    },
+    "dependents": [],
+    "id": "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88"
+  },
+  "84b99b40-200e-4901-953f-64364e9763b4": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Microsoft Teams",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3443/teams/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_teams",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "98a4ad57-d925-4491-aacb-4f4ec9dad3ef",
+      "89ca1aa3-9697-4730-b24b-373083fed2e7",
+      "ee6d70fa-beac-445f-8c86-2ee737bdb26f",
+      "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88"
+    ],
+    "id": "84b99b40-200e-4901-953f-64364e9763b4"
+  },
+  "89ca1aa3-9697-4730-b24b-373083fed2e7": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "505ed6d8-930f-45b9-82c0-65c6de1a53af": {
+          "value": "shared_office365users"
+        },
+        "84b99b40-200e-4901-953f-64364e9763b4": {
+          "value": "shared_teams"
+        },
+        "d5952d58-afb0-45dc-bf55-f4f43970a50d": {
+          "value": "shared_sharepointonline_1"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "58fe6e70-c66f-4210-9140-987899f644ec"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365users": {
+          "value": "505ed6d8-930f-45b9-82c0-65c6de1a53af"
+        },
+        "shared_sharepointonline": {
+          "value": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+        },
+        "shared_sharepointonline_1": {
+          "value": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+        },
+        "shared_teams": {
+          "value": "84b99b40-200e-4901-953f-64364e9763b4"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "58fe6e70-c66f-4210-9140-987899f644ec"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "SalidaComida"
+    ],
+    "dependencies": {
+      "shared_office365users": "505ed6d8-930f-45b9-82c0-65c6de1a53af",
+      "shared_sharepointonline": "d5952d58-afb0-45dc-bf55-f4f43970a50d",
+      "shared_sharepointonline_1": "d5952d58-afb0-45dc-bf55-f4f43970a50d",
+      "shared_teams": "84b99b40-200e-4901-953f-64364e9763b4"
+    },
+    "dependents": [],
+    "id": "89ca1aa3-9697-4730-b24b-373083fed2e7"
+  },
+  "98a4ad57-d925-4491-aacb-4f4ec9dad3ef": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "505ed6d8-930f-45b9-82c0-65c6de1a53af": {
+          "value": "shared_office365users"
+        },
+        "84b99b40-200e-4901-953f-64364e9763b4": {
+          "value": "shared_teams"
+        },
+        "d5952d58-afb0-45dc-bf55-f4f43970a50d": {
+          "value": "shared_sharepointonline_1"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "4144bb23-e12f-4b78-a179-839ffe405d5f"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365users": {
+          "value": "505ed6d8-930f-45b9-82c0-65c6de1a53af"
+        },
+        "shared_sharepointonline": {
+          "value": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+        },
+        "shared_sharepointonline_1": {
+          "value": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+        },
+        "shared_teams": {
+          "value": "84b99b40-200e-4901-953f-64364e9763b4"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "4144bb23-e12f-4b78-a179-839ffe405d5f"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ActualizacionSalidaF"
+    ],
+    "dependencies": {
+      "shared_office365users": "505ed6d8-930f-45b9-82c0-65c6de1a53af",
+      "shared_sharepointonline": "d5952d58-afb0-45dc-bf55-f4f43970a50d",
+      "shared_sharepointonline_1": "d5952d58-afb0-45dc-bf55-f4f43970a50d",
+      "shared_teams": "84b99b40-200e-4901-953f-64364e9763b4"
+    },
+    "dependents": [],
+    "id": "98a4ad57-d925-4491-aacb-4f4ec9dad3ef"
+  },
+  "d5952d58-afb0-45dc-bf55-f4f43970a50d": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://precitool.sharepoint.com/sites/PortalAdministracin": {
+        "dataSources": {
+          "Descansos Oficiales": {
+            "tableName": "eae10940-7788-45dd-8671-76b8afcbd24f"
+          },
+          "EntradasSalidas": {
+            "tableName": "5c06e0a5-7659-4c62-b8c8-67722cb62a79"
+          },
+          "HorarioPersonal": {
+            "tableName": "e009b892-f608-4b5b-b837-61f445bcba20"
+          },
+          "Permisos": {
+            "tableName": "c4efdbe6-676c-47d1-844f-93bda346230b"
+          },
+          "Vacaciones": {
+            "tableName": "2ee2f521-f121-4db9-b1e4-d9b19d2296af"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Descansos Oficiales",
+      "HorarioPersonal",
+      "Permisos",
+      "EntradasSalidas",
+      "Vacaciones"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "98a4ad57-d925-4491-aacb-4f4ec9dad3ef",
+      "89ca1aa3-9697-4730-b24b-373083fed2e7",
+      "ee6d70fa-beac-445f-8c86-2ee737bdb26f",
+      "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88"
+    ],
+    "id": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+  },
+  "ee6d70fa-beac-445f-8c86-2ee737bdb26f": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "505ed6d8-930f-45b9-82c0-65c6de1a53af": {
+          "value": "shared_office365users"
+        },
+        "84b99b40-200e-4901-953f-64364e9763b4": {
+          "value": "shared_teams"
+        },
+        "d5952d58-afb0-45dc-bf55-f4f43970a50d": {
+          "value": "shared_sharepointonline_1"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "fde15874-f2c9-477d-9a62-584a7f32af86"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365users": {
+          "value": "505ed6d8-930f-45b9-82c0-65c6de1a53af"
+        },
+        "shared_sharepointonline": {
+          "value": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+        },
+        "shared_sharepointonline_1": {
+          "value": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+        },
+        "shared_teams": {
+          "value": "84b99b40-200e-4901-953f-64364e9763b4"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "fde15874-f2c9-477d-9a62-584a7f32af86"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "EntradaComida"
+    ],
+    "dependencies": {
+      "shared_office365users": "505ed6d8-930f-45b9-82c0-65c6de1a53af",
+      "shared_sharepointonline": "d5952d58-afb0-45dc-bf55-f4f43970a50d",
+      "shared_sharepointonline_1": "d5952d58-afb0-45dc-bf55-f4f43970a50d",
+      "shared_teams": "84b99b40-200e-4901-953f-64364e9763b4"
+    },
+    "dependents": [],
+    "id": "ee6d70fa-beac-445f-8c86-2ee737bdb26f"
+  }
+}

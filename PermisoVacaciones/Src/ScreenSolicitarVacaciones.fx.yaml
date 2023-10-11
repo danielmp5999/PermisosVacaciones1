@@ -1,0 +1,3046 @@
+"ScreenSolicitarVacaciones As screen.'autoLayout_Sidebar_ver1.0'":
+
+    Container1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =2
+
+        ContainerMenu As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(54, 92, 168, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: |-
+                =If(Gallery1.Visible = true,
+                    Gallery1.Width,
+                    Icon2.Width)
+            ZIndex: =1
+
+            Icon2 As icon.Add:
+                Color: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.Hamburger
+                OnSelect: |-
+                    =Set(band, band +1);
+                    If(band = 1,
+                        Set(varSideMenu, true),
+                        Set(varSideMenu, false);
+                        Set(band, 0);
+                    )
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                ZIndex: =1
+
+            "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                DelayItemLoading: =true
+                Items: =colSideMenu
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =200
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |-
+                    =Set(varEdit, true);
+                    Set(varCalendario, false);
+                    Set(varCalHoras, 0);
+                    Set(varSideMenu, false);
+                    Set(band, 0);
+                    
+                    If(Gallery1.Selected.MenuID <> 1,
+                        Set(varPrin, false);
+                    );
+                    If(Gallery1.Selected.MenuID = 1,
+                        Set(varPrin, true);
+                    );
+                    If(Gallery1.Selected.MenuID = 6,
+                        Collect(colReg,{
+                            ID: 1,
+                            'Created By': "",
+                            FechaHora: "",
+                            SalidaComida: "",
+                            EntradaComida: "",
+                            FechaHoraSalida: "",
+                            Validacion: Now(),
+                            ValidacionText: ""
+                        }); 
+                        Clear(colReg);
+                        ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                            Patch(colReg,Defaults(colReg),
+                                {
+                                    ID: ID,
+                                    'Created By': 'Created By'.Email,
+                                    FechaHora: FechaHora,
+                                    SalidaComida: SalidaComida,
+                                    EntradaComida: EntradaComida,
+                                    FechaHoraSalida: FechaHoraSalida,
+                                    Validacion: Validacion,
+                                    ValidacionText: ValidacionText
+                                }
+                            )
+                        );
+                        Set(aux, LookUp(colReg,
+                            And(/*'Created By' =User().Email,*/ 
+                                ValidacionText = Text(Today(), "dd/mm/yyyy")
+                            ),SalidaComida
+                        )
+                            );
+                    );
+                    
+                    Set(varManager, Office365Users.Manager(User().Email).Mail);
+                TemplatePadding: =0
+                TemplateSize: =50
+                Visible: =varSideMenu
+                Width: =320
+                ZIndex: =3
+
+                Title1 As label:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Font: =Font.Verdana
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =27
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =ThisItem.MenuLabel
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =230
+                    X: =78
+                    Y: =23
+                    ZIndex: =2
+
+                Separator1 As rectangle:
+                    Height: =2
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height +2
+                    ZIndex: =5
+
+                Rectangle1 As rectangle:
+                    Height: =Parent.TemplateHeight - Separator1.Height
+                    OnSelect: =Select(Parent)
+                    Visible: =ThisItem.IsSelected
+                    Width: =4
+                    Y: =5
+                    ZIndex: =6
+
+                Icon4 As icon.Add:
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Icon: =ThisItem.MenuIcon
+                    OnSelect: =Select(Parent)
+                    Width: =30
+                    X: =21
+                    Y: =14
+                    ZIndex: =7
+
+        Container2 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            ContainerHeader As groupContainer.horizontalAutoLayoutContainer:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderStyle: =BorderStyle.None
+                DropShadow: =DropShadow.Semilight
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =20
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                ZIndex: =1
+
+                Image3_3 As image:
+                    Height: =80
+                    Image: =LogoPrecitool
+                    Width: =130
+                    ZIndex: =1
+
+                Header_Vacaciones As label:
+                    Align: =Align.Center
+                    FillPortions: =1
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Bold
+                    Size: =15
+                    Text: ="SOLICITUD DE VACACIONES"
+                    Visible: =If(And(Gallery1.Selected.MenuID = 4,varEdit), true)
+                    Width: =500
+                    ZIndex: =2
+
+                Header_Permisos As label:
+                    Align: =Align.Center
+                    FillPortions: =1
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Bold
+                    Size: =15
+                    Text: ="SOLICITUD DE PERMISO"
+                    Visible: =If(And(Gallery1.Selected.MenuID = 2,varEdit), true)
+                    Width: =500
+                    ZIndex: =3
+
+                Header_RegistroVac As label:
+                    Align: =Align.Center
+                    FillPortions: =1
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Bold
+                    Size: =15
+                    Text: ="REGISTRO DE VACACIONES"
+                    Visible: =If(And(Gallery1.Selected.MenuID = 5,varEdit), true)
+                    Width: =500
+                    ZIndex: =4
+
+                Header_RegistroVac_1 As label:
+                    Align: =Align.Center
+                    FillPortions: =1
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Bold
+                    Size: =15
+                    Text: ="REGISTRO DE PERMISOS"
+                    Visible: =If(And(Gallery1.Selected.MenuID = 7,varEdit), true)
+                    Width: =500
+                    ZIndex: =5
+
+                Icon3 As icon.Reload:
+                    Height: =60
+                    Icon: =Icon.Reload
+                    OnSelect: =Refresh([@Vacaciones])
+                    PaddingRight: =20
+                    Visible: =If(Gallery1.Selected.MenuID = 5, true, false)
+                    Width: =60
+                    X: =40
+                    Y: =40
+                    ZIndex: =6
+
+                IconRefreshPermisos As icon.Reload:
+                    Height: =60
+                    Icon: =Icon.Reload
+                    OnSelect: =Refresh([@Permisos])
+                    PaddingRight: =20
+                    Visible: =If(Gallery1.Selected.MenuID = 7, true, false)
+                    Width: =60
+                    X: =40
+                    Y: =40
+                    ZIndex: =7
+
+                Button1 As button:
+                    Font: =Font.Verdana
+                    OnSelect: |-
+                        =Launch("https://precitool.sharepoint.com/:l:/s/PortalAdministracin/FCH14i4h8blNseTZsZ0ilq8BeYI2WObuPMl1qPE-3okt8w?e=ha9nvh")
+                    RadiusBottomLeft: =25
+                    RadiusBottomRight: =25
+                    RadiusTopLeft: =25
+                    RadiusTopRight: =25
+                    Size: =11
+                    Text: ="Ver calendario"
+                    Visible: =If(Gallery1.Selected.MenuID = 5, true, false)
+                    ZIndex: =8
+
+                Header_ES As label:
+                    Align: =Align.Center
+                    FillPortions: =1
+                    Font: =Font.Verdana
+                    FontWeight: =FontWeight.Bold
+                    Size: =15
+                    Text: ="REGISTRO DE ENTRADAS Y SALIDAS"
+                    Visible: =If(And(Gallery1.Selected.MenuID = 6,varEdit), true)
+                    Width: =500
+                    ZIndex: =9
+
+                IconRefreshHorarioPersonal As icon.Reload:
+                    Height: =60
+                    Icon: =Icon.Reload
+                    OnSelect: =Refresh([@HorarioPersonal])
+                    PaddingRight: =20
+                    Visible: =If(Gallery1.Selected.MenuID = 1, true, false)
+                    Width: =60
+                    X: =40
+                    Y: =40
+                    ZIndex: =10
+
+            ContainerHome As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Visible: =varPrin
+                ZIndex: =2
+
+                ContainerHome_6 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =0
+                    Height: =100
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingTop: =10
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    ZIndex: =1
+
+                    Label1_11 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        PaddingTop: =10
+                        Text: |-
+                            ="Bienvenid@: " & LookUp(HorarioPersonal,Correo = User().Email,Personal.DisplayName)
+                        Width: =0
+                        ZIndex: =1
+
+                ContainerHome_3 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.None
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =55
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =50
+                    PaddingLeft: =50
+                    PaddingRight: =50
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    ZIndex: =2
+
+                    ContainerHome_5 As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.None
+                        Fill: =RGBA(214, 223, 238, 1)
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =30
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingTop: =10
+                        RadiusBottomLeft: =30
+                        RadiusBottomRight: =30
+                        RadiusTopLeft: =30
+                        RadiusTopRight: =30
+                        ZIndex: =1
+
+                        Label1_10 As label:
+                            Align: =Align.Center
+                            AlignInContainer: =AlignInContainer.Stretch
+                            AutoHeight: =true
+                            Fill: =RGBA(214, 223, 238, 1)
+                            Font: =Font.Verdana
+                            Size: =20
+                            Text: ="Permisos"
+                            Width: =0
+                            ZIndex: =3
+
+                        Label1_9 As label:
+                            Align: =Align.Center
+                            AlignInContainer: =AlignInContainer.Stretch
+                            AutoHeight: =true
+                            Fill: =RGBA(214, 223, 238, 1)
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
+                            Size: =22
+                            Text: =LookUp(HorarioPersonal,Correo = User().Email,Permisos)
+                            Width: =0
+                            ZIndex: =4
+
+                    ContainerHome_4 As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.None
+                        Fill: =RGBA(214, 223, 238, 1)
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingTop: =10
+                        RadiusBottomLeft: =30
+                        RadiusBottomRight: =30
+                        RadiusTopLeft: =30
+                        RadiusTopRight: =30
+                        ZIndex: =2
+
+                        Label1_7 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            Fill: =RGBA(214, 223, 238, 1)
+                            Font: =Font.Verdana
+                            Size: =20
+                            Text: ="Vacaciones"
+                            Width: =400
+                            ZIndex: =2
+
+                        Label1_8 As label:
+                            Align: =Align.Center
+                            AutoHeight: =true
+                            Fill: =RGBA(214, 223, 238, 1)
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
+                            Size: =22
+                            Text: =If((LookUp(HorarioPersonal,Correo = User().Email, DiasDeVacaciones)) = 0, "0", LookUp(HorarioPersonal,Correo = User().Email, DiasDeVacaciones))
+                            Width: =400
+                            ZIndex: =3
+
+                Container3 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =varisHeight
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    Button4 As button:
+                        AlignInContainer: =AlignInContainer.Center
+                        OnSelect: |-
+                            =Set(varisHeight, 300);
+                            Set(varaux , 0);
+                        Text: ="Registrar home office"
+                        Width: =250
+                        ZIndex: =1
+
+                    Label8 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Text: |-
+                            ="A continuación, selecciona los días:  " & varaux
+                        Width: =350
+                        ZIndex: =2
+
+                    Container6 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =3
+
+                        Checkbox1 As checkbox:
+                            OnCheck: =Set(varaux , varaux + 1);
+                            OnUncheck: =Set(varaux , varaux - 1);
+                            Text: ="Lunes"
+                            ZIndex: =2
+
+                        Checkbox2 As checkbox:
+                            OnCheck: =Set(varaux , varaux + 1);
+                            OnUncheck: =Set(varaux , varaux - 1);
+                            Text: ="Martes"
+                            ZIndex: =3
+
+                        Checkbox3 As checkbox:
+                            OnCheck: =Set(varaux , varaux + 1);
+                            OnUncheck: =Set(varaux , varaux - 1);
+                            Text: ="Miércoles"
+                            ZIndex: =4
+
+                        Checkbox4 As checkbox:
+                            OnCheck: =Set(varaux , varaux + 1);
+                            OnUncheck: =Set(varaux , varaux - 1);
+                            Text: ="Jueves"
+                            ZIndex: =5
+
+                        Checkbox5 As checkbox:
+                            DisplayMode: |-
+                                =//DisplayMode.Edit
+                                If(varaux >= 2,
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                                )
+                            OnCheck: =Set(varaux , varaux + 1);
+                            OnSelect: =
+                            OnUncheck: =Set(varaux , varaux - 1);
+                            Text: ="Viernes"
+                            ZIndex: =6
+
+            ContainerVacaciones As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =10
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Visible: =If(And(Gallery1.Selected.MenuID = 4,varEdit), true)
+                ZIndex: =3
+
+                Form1 As form:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderStyle: =BorderStyle.None
+                    DataSource: =Vacaciones
+                    DefaultMode: =FormMode.New
+                    LayoutMinHeight: =300
+                    LayoutMinWidth: =400
+                    SnapToColumns: =false
+                    Visible: =If(And(Gallery1.Selected.MenuID = 4,varEdit), true)
+                    ZIndex: =2
+
+                    DataCard2 As typedDataCard.blankCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DisplayMode: =DisplayMode.Edit
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =100
+                        Width: =264
+                        X: =2
+                        Y: =237
+                        ZIndex: =1
+
+                        Label7 As label:
+                            Height: =34
+                            Text: |-
+                                ="Jefe Directo:"
+                            Width: =204
+                            X: =30
+                            Y: =5
+                            ZIndex: =1
+
+                        TextInput1 As text:
+                            Default: |-
+                                =//Office365Users.UserProfile(Dropdown1.SelectedText.Mail).Mail //Visualizar Mail
+                                //Dropdown1.SelectedText.Mail 
+                                //Office365Users.Manager(Dropdown1.SelectedText.Mail).DisplayName //A quien reporta por item de un dropDown
+                                
+                                //Office365Users.Manager(Concat(DataCardValue8.SelectedItems,Mail)).DisplayName //A quien reporta por item que se selecciona
+                                Office365Users.Manager(User().Email).DisplayName //A quien reporta por usuario activo en la app
+                                //Office365Users.Manager(varManager).DisplayName //A quien reporta por cada que se incia la app (variable)
+                                //Concat(DataCardValue8.SelectedItems,DisplayName) //Obtener el texto de una card
+                            DisplayMode: =DisplayMode.View
+                            PaddingLeft: =0
+                            Width: =290
+                            X: =30
+                            Y: =46
+                            ZIndex: =2
+
+                    desde_DataCard1 As typedDataCard.dateEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="desde"
+                        Default: =ThisItem.desde
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"desde")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =true
+                        Update: =tbxVacaciones_Desde.SelectedDate
+                        Width: =355
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey2 As label:
+                            AutoHeight: =true
+                            Font: =Font.Verdana
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Desde"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        tbxVacaciones_Desde As datepicker:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultDate: |-
+                                =//Parent.Default
+                                DateAdd(Now(),5,TimeUnit.Days)
+                            DisplayMode: =Parent.DisplayMode
+                            EndYear: =Year(Today())+100
+                            Format: |-
+                                =//DateTimeFormat.ShortDate
+                                //"dddd dd / mmmm/yyyy"
+                                "dd/mm/yyyy"
+                            InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), Text(Date(2023,01,31), Self.Format, Self.Language))
+                            IsEditable: =true
+                            Language: ="es"
+                            PaddingBottom: =0
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            StartYear: =2023
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage2 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =tbxVacaciones_Desde.Y + tbxVacaciones_Desde.Height
+                            ZIndex: =3
+
+                    hasta_DataCard1 As typedDataCard.dateEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="hasta"
+                        Default: =ThisItem.hasta
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"hasta")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =true
+                        Update: =tbxVacaciones_Hasta.SelectedDate
+                        Width: =355
+                        X: =2
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey3 As label:
+                            AutoHeight: =true
+                            Font: =Font.Verdana
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Hasta"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        tbxVacaciones_Hasta As datepicker:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultDate: |-
+                                =//Parent.Default
+                                Now()
+                                //DateAdd(tbxVacaciones_Desde.SelectedDate,TextInput2,TimeUnit.Days)
+                                //varFechaFin
+                            EndYear: =Text(Today(),"yyyy")
+                            Format: |-
+                                =//DateTimeFormat.ShortDate
+                                //"dddd dd / mmmm/yyyy"
+                                "dd/mm/yyyy"
+                            InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), Text(Date(2023,01,31), Self.Format, Self.Language))
+                            IsEditable: =true
+                            Language: ="es"
+                            PaddingBottom: =0
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            StartYear: =Text(Today(),"yyyy")
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =46
+                            ZIndex: =2
+
+                        ErrorMessage3 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =tbxVacaciones_Hasta.Y + tbxVacaciones_Hasta.Height
+                            ZIndex: =3
+
+                    diasSolicitados_DataCard1 As typedDataCard.numberEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="diasSolicitados"
+                        Default: =ThisItem.diasSolicitados
+                        DisplayMode: =Parent.DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"diasSolicitados")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =Value(DataCardValue4.Text)
+                        Visible: =false
+                        Width: =236
+                        X: =3
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey4 As label:
+                            AutoHeight: =true
+                            Font: =Font.Verdana
+                            Height: =34
+                            Text: ="Días solicitados"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue4 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: |-
+                                =//Parent.Default
+                                DateDiff(tbxVacaciones_Desde.SelectedDate,tbxVacaciones_Hasta,TimeUnit.Days)
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Format: =TextFormat.Number
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage4 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue4.Y + DataCardValue4.Height
+                            ZIndex: =3
+
+                        StarVisible4 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey4.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey4.Y
+                            ZIndex: =4
+
+                    reemplazo_DataCard1 As typedDataCard.comboBoxEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="reemplazo"
+                        Default: =ThisItem.reemplazo
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"reemplazo")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue8.Selected
+                        Width: =350
+                        WidthFit: =false
+                        X: =1
+                        Y: =1
+                        ZIndex: =2
+
+                        DataCardKey8 As label:
+                            AutoHeight: =true
+                            Font: =Font.Verdana
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Persona que podría cubrir puesto"
+                            Width: =320
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue8 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["DisplayName","Mail","Picture"]
+                            DisplayMode: =Parent.DisplayMode
+                            InputTextPlaceholder: ="Buscar personal"
+                            IsSearchable: =false
+                            Items: |-
+                                =//Filter(Choices([@Vacaciones].reemplazo),Department="VENTAS")
+                                //Choices([@Vacaciones].reemplazo)
+                                Office365Users.DirectReports(Office365Users.Manager(User().Email).Mail)
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["City"]
+                            SearchItems: =[]
+                            SelectMultiple: =false
+                            Template: =ListItemTemplate.Person
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage8 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue8.Y + DataCardValue8.Height
+                            ZIndex: =3
+
+                        StarVisible8 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey8.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey8.Y
+                            ZIndex: =4
+
+                    comentarios_DataCard1 As typedDataCard.textualEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="comentarios"
+                        Default: =ThisItem.comentarios
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"comentarios")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =138
+                        MaxLength: =DataSourceInfo([@Vacaciones], DataSourceInfo.MaxLength, "comentarios")
+                        Required: =false
+                        Update: =DataCardValue5.Text
+                        Width: =396
+                        X: =2
+                        Y: =1
+                        ZIndex: =2
+
+                        DataCardKey5 As label:
+                            AutoHeight: =true
+                            Font: =Font.Verdana
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Comentarios"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue5 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Font: =Font.Verdana
+                            Height: =87
+                            MaxLength: =Parent.MaxLength
+                            Mode: =TextMode.MultiLine
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =12
+                            Tooltip: =Parent.DisplayName
+                            Width: =298
+                            X: =30
+                            Y: =41
+                            ZIndex: =2
+
+                        ErrorMessage5 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue5.Y + DataCardValue5.Height
+                            ZIndex: =3
+
+                        StarVisible5 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey5.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey5.Y
+                            ZIndex: =4
+
+                    estatusVacaciones_DataCard1 As typedDataCard.comboBoxEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="estatusVacaciones"
+                        Default: =ThisItem.estatusVacaciones
+                        DisplayMode: =Parent.DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"estatusVacaciones")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue7.Selected
+                        Visible: =If(Form1.Mode.New, false, true)
+                        Width: =355
+                        X: =0
+                        Y: =2
+                        ZIndex: =2
+
+                        DataCardKey7 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue7 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["Value"]
+                            DisplayMode: =Parent.DisplayMode
+                            Items: =Choices([@Vacaciones].estatusVacaciones)
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["Value"]
+                            SearchItems: =Choices(Vacaciones.estatusVacaciones,DataCardValue7.SearchText)
+                            SelectMultiple: =false
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage7 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue7.Y + DataCardValue7.Height
+                            ZIndex: =3
+
+                        StarVisible7 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey7.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey7.Y
+                            ZIndex: =4
+
+                    estatusSolicitud_DataCard1 As typedDataCard.comboBoxEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="estatusSolicitud"
+                        Default: =ThisItem.estatusSolicitud
+                        DisplayMode: =Parent.DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"estatusSolicitud")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue6.Selected
+                        Visible: =If(Form1.Mode.New, false, true)
+                        Width: =354
+                        X: =1
+                        Y: =2
+                        ZIndex: =2
+
+                        DataCardKey6 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue6 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["Value"]
+                            DisplayMode: =Parent.DisplayMode
+                            Items: =Choices([@Vacaciones].estatusSolicitud)
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["Value"]
+                            SearchItems: =Choices(Vacaciones.estatusSolicitud,DataCardValue6.SearchText)
+                            SelectMultiple: =false
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage6 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue6.Y + DataCardValue6.Height
+                            ZIndex: =3
+
+                        StarVisible6 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey6.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey6.Y
+                            ZIndex: =4
+
+                Container5 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.None
+                    FillPortions: =0
+                    Height: =80
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =50
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =If(And(Gallery1.Selected.MenuID = 4,varEdit), true)
+                    ZIndex: =3
+
+                    btnVacacionesCancelar As button:
+                        Font: =Font.Verdana
+                        OnSelect: |-
+                            =Set(varEdit, false);
+                            ResetForm(Form1)
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Text: ="Cancelar"
+                        ZIndex: =1
+
+                    btnVacacionesAceptar As button:
+                        Font: =Font.Verdana
+                        OnSelect: |-
+                            =If(SubmitForm(Form1),
+                                Set(varEdit, false);
+                                ResetForm(Form1);
+                                Notify("Se ha guardado", NotificationType.Success,"4000")
+                                ,   
+                                Notify("No se pudo guardar", NotificationType.Error, "4000")
+                            )
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Text: ="Aceptar"
+                        ZIndex: =2
+
+                Label10 As label:
+                    Text: |-
+                        =//Text(tbxVacaciones_Desde.SelectedDate,"HH") 
+                        //User().Email
+                    ZIndex: =4
+
+            ContainerPermisos As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =10
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Visible: =If(And(Gallery1.Selected.MenuID = 2,varEdit), true)
+                ZIndex: =4
+
+                labelPautas As label:
+                    Align: =Align.Justify
+                    AlignInContainer: =AlignInContainer.Stretch
+                    AutoHeight: =true
+                    Fill: =RGBA(227, 234, 243, 1)
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    Text: |-
+                        ="Toma en cuenta lo siguiente: 
+                        a. Los permisos solo serán de 4 horas como máximo. 
+                        b. Solo se pueden solicitar, en caso necesario, 3 permisos por mes. 
+                        c. Si se solicitan permisos de manera constante estos serán negados.  
+                        d. Los permisos deben solicitarse con 24 horas de anticipación.
+                        e. De necesitar mayor tiempo para el permiso, se contabilizará como día a cuenta de vacaciones."
+                    X: =40
+                    Y: =40
+                    ZIndex: =1
+
+                Form2 As form:
+                    DataSource: =Permisos
+                    DefaultMode: =FormMode.New
+                    FillPortions: =0
+                    Height: =120
+                    LayoutMinHeight: =250
+                    LayoutMinWidth: =400
+                    ZIndex: =3
+
+                    "'Día Solicitado_DataCard2' As typedDataCard.dateEditCard":
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="D_x00ed_aSolicitado"
+                        Default: =ThisItem.'Día Solicitado'
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Permisos],DataSourceInfo.DisplayName,"D_x00ed_aSolicitado")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =true
+                        Update: =DataCardValue21.SelectedDate
+                        Width: =348
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                        DataCardKey21 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue21 As datepicker:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultDate: |-
+                                =//Parent.Default
+                                DateAdd(Now(),1,TimeUnit.Days)
+                            DisplayMode: =Parent.DisplayMode
+                            EndYear: =Year(Today())+100
+                            Format: |-
+                                =//DateTimeFormat.ShortDate
+                                "dd/mm/yyyy"
+                            InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), Text(Date(2023,01,31), Self.Format, Self.Language))
+                            IsEditable: =true
+                            OnSelect: =If(DataCardValue21.SelectedDate<Today(),Notify("Selected date cannot be before Today",NotificationType.Error))
+                            PaddingBottom: =0
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            StartYear: =1899
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =54
+                            ZIndex: =2
+
+                        ErrorMessage17 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue21.Y + DataCardValue21.Height
+                            ZIndex: =3
+
+                    "'Horas Solicitadas_DataCard1' As typedDataCard.numberEditCard":
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="HorasSolicitadas"
+                        Default: =ThisItem.'Horas Solicitadas'
+                        DisplayMode: =Parent.DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Permisos],DataSourceInfo.DisplayName,"HorasSolicitadas")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =true
+                        Update: =Value(DataCardValue1.Text)
+                        Width: =348
+                        X: =1
+                        Y: =0
+                        ZIndex: =1
+
+                        DataCardKey1 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue1 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: |-
+                                =//Parent.Default
+                                If(And(DropdownDeM.SelectedText.Value = "00",DropdownAM.SelectedText.Value="00"),
+                                    (DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value), //& ":00",
+                                    And(DropdownDeM.SelectedText.Value = "00",DropdownAM.SelectedText.Value="30"),
+                                    (DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value + 0.5),// & ":30",
+                                    And(DropdownDeM.SelectedText.Value = "30",DropdownAM.SelectedText.Value="00"),
+                                    (DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value -1 + 0.5),// & ":30",
+                                    And(DropdownDeM.SelectedText.Value = "30",DropdownAM.SelectedText.Value="30"),
+                                    (DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value) //  & ":00"
+                                )
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Format: =TextFormat.Number
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =51
+                            ZIndex: =2
+
+                        ErrorMessage12 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue1.Y + DataCardValue1.Height
+                            ZIndex: =3
+
+                Container5_3 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.None
+                    FillPortions: =0
+                    Height: =300
+                    LayoutGap: =10
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =30
+                    Visible: =If(And(Gallery1.Selected.MenuID = 2,varEdit), true)
+                    ZIndex: =4
+
+                    De As label:
+                        Align: =Align.Justify
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Semibold
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        Text: ="De"
+                        Width: =50
+                        X: =40
+                        Y: =40
+                        ZIndex: =1
+
+                    DropdownDeH As dropdown:
+                        Items: =[9,10,11,12,13,14,15,16,17,18]
+                        Width: =100
+                        ZIndex: =2
+
+                    separador1 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =0
+                        Text: |-
+                            =":"
+                        Width: =50
+                        X: =40
+                        Y: =40
+                        ZIndex: =3
+
+                    DropdownDeM As dropdown:
+                        Items: |-
+                            =//DropDownSample
+                            If(Value(DropdownDeH.SelectedText.Value) = 9,
+                                ["30"],
+                                ["00", "30"]
+                            )
+                        Width: =100
+                        ZIndex: =4
+
+                    Container5_4 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderStyle: =BorderStyle.None
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =300
+                        LayoutGap: =10
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =30
+                        Visible: =If(And(Gallery1.Selected.MenuID = 2,varEdit), true)
+                        ZIndex: =5
+
+                        De_1 As label:
+                            Align: =Align.Justify
+                            AlignInContainer: =AlignInContainer.Stretch
+                            AutoHeight: =true
+                            FontWeight: =FontWeight.Semibold
+                            PaddingRight: =0
+                            Text: ="a"
+                            Width: =50
+                            X: =40
+                            Y: =40
+                            ZIndex: =1
+
+                        DropdownAH As dropdown:
+                            Items: |-
+                                =//[10,11,12,13,14,15,16,17,18]
+                                Switch(DropdownDeH.SelectedText.Value,
+                                    "9",
+                                    [10,11,12,13],
+                                    "10",
+                                    [11,12,13,14],
+                                    "11",
+                                    [12,13,14,15],
+                                    "12",
+                                    [13,14,15,16],
+                                    "13",
+                                    [14,15,16,17],
+                                    "14",
+                                    [15,16,17,18],
+                                    "15",
+                                    [16,17,18,19],
+                                    "16",
+                                    [17,18,19],
+                                    "17",
+                                    [18,19],
+                                    "18",
+                                    [19]
+                                )
+                            Width: =100
+                            ZIndex: =2
+
+                        separador2 As label:
+                            Align: =Align.Center
+                            AlignInContainer: =AlignInContainer.Stretch
+                            AutoHeight: =true
+                            FontWeight: =FontWeight.Bold
+                            PaddingRight: =0
+                            Text: |-
+                                =":"
+                            Width: =50
+                            X: =40
+                            Y: =40
+                            ZIndex: =3
+
+                        DropdownAM As dropdown:
+                            Items: |-
+                                =//DropDownSample
+                                //And(DropdownAH.SelectedText.Value <> "19" , 
+                                If(And(DropdownAH.SelectedText.Value <> "19" , 
+                                    Or(DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value <> 4, DropdownDeM.SelectedText.Value = "30")),
+                                    ["00", 30],
+                                    ["00"]
+                                )
+                            Width: =100
+                            ZIndex: =4
+
+                    Label3 As label:
+                        Text: |-
+                            =/*If(DropdownDeH.Selected.Value = 9,
+                                "text"
+                                ||
+                                And(DropdownDeM.SelectedText.Value = "30",DropdownAM.SelectedText.Value="00")
+                            )*/
+                            "Cálculo de horas:"& Char(10) &
+                            If(And(DropdownDeM.SelectedText.Value = "00",DropdownAM.SelectedText.Value="00"),
+                                DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value & ":00",
+                                And(DropdownDeM.SelectedText.Value = "00",DropdownAM.SelectedText.Value="30"),
+                                DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value & ":30",
+                                And(DropdownDeM.SelectedText.Value = "30",DropdownAM.SelectedText.Value="00"),
+                                DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value -1 & ":30",
+                                And(DropdownDeM.SelectedText.Value = "30",DropdownAM.SelectedText.Value="30"),
+                                DropdownAH.SelectedText.Value - DropdownDeH.SelectedText.Value  & ":00"
+                                
+                            )
+                        Visible: =false
+                        ZIndex: =6
+
+                Container5_1 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    Height: =80
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =50
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =If(And(Gallery1.Selected.MenuID = 2,varEdit), true)
+                    ZIndex: =5
+
+                    btnVacacionesCancelar_1 As button:
+                        Font: =Font.Verdana
+                        OnSelect: |-
+                            =Set(varEdit, false);
+                            //ResetForm(Form1_1)
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Text: ="Cancelar"
+                        ZIndex: =1
+
+                    btnVacacionesAceptar_1 As button:
+                        Font: =Font.Verdana
+                        OnSelect: |
+                            =//SubmitForm(Form2)
+                            Set(
+                                varisFecha,
+                                Text(DataCardValue21.SelectedDate)
+                            );
+                            //Set(VarTime, Time(DropdownDeH.SelectedText.Value));
+                            /*Set(VarTimeDesde, Time(DropdownDeH.SelectedText.Value,DropdownDeM.SelectedText.Value,0));
+                            
+                            Set(VarTimeHasta, Time(DropdownAH.SelectedText.Value,DropdownAM.SelectedText.Value,0));*/
+                            Set(
+                                VarTimeDesde,
+                                Time(
+                                    DropdownDeH.SelectedText.Value,
+                                    DropdownDeM.SelectedText.Value,
+                                    0
+                                )
+                            );
+                            Set(
+                                VarTimeHasta,
+                                Time(
+                                    DropdownAH.SelectedText.Value,
+                                    DropdownAM.SelectedText.Value,
+                                    0
+                                )
+                            );
+                            Set(
+                                VarTimeD,
+                                DateTimeValue(
+                                    Concatenate(
+                                        DataCardValue21.SelectedDate,
+                                        " ",
+                                        VarTimeDesde
+                                    )
+                                )
+                            );
+                            Set(
+                                VarTimeH,
+                                DateTimeValue(
+                                    Concatenate(
+                                        DataCardValue21.SelectedDate,
+                                        " ",
+                                        VarTimeHasta
+                                    )
+                                )
+                            );
+                            Set(
+                                VarTimeDT,
+                                Text(VarTimeD)
+                            );
+                            Set(
+                                VarTimeHT,
+                                Text(VarTimeH)
+                            );
+                            Set(
+                                VarFormID,
+                                Patch(
+                                    Permisos,
+                                    Defaults(Permisos),
+                                    {
+                                        'Día Solicitado': DataCardValue21.SelectedDate,
+                                        'Horas Solicitadas': Value(DataCardValue1.Text)
+                                    },
+                                    Form2.Updates
+                                ).ID
+                            );
+                            Patch(
+                                Permisos,
+                                LookUp(
+                                    Permisos,
+                                    ID = VarFormID
+                                ),
+                                {
+                                    HoraDesde: VarTimeD,
+                                    HoraHasta: VarTimeH,
+                                    HoraDesdeTexto: VarTimeDT,
+                                    HoraHastaTexto: VarTimeHT
+                                }
+                            );
+                            Set(
+                                varEdit,
+                                false
+                            );
+                            ResetForm(Form2);
+                            Gallery1.Selected.MenuID = 2;
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Text: ="Aceptar"
+                        ZIndex: =2
+
+            ContainerVacacionesRegistro As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =10
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Visible: =If(And(Gallery1.Selected.MenuID = 5,varEdit) && varCalendario = false, true)
+                ZIndex: =5
+
+                "GalleryVacaciones As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver5.0'":
+                    DelayItemLoading: =true
+                    Items: =Vacaciones
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =125
+                    ZIndex: =1
+
+                    Title4 As label:
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.'Created By'.DisplayName
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - 185
+                        X: =115
+                        Y: =26
+                        ZIndex: =1
+
+                    Subtitle3 As label:
+                        Align: =Align.Center
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =2
+                        Text: =Text(ThisItem.desde, "dd/mm/yyyy", "en-GB")
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =116
+                        X: =325
+                        Y: =59
+                        ZIndex: =2
+
+                    Body2 As label:
+                        Align: =Align.Center
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =27
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Text(ThisItem.hasta, "dd/mm/yyyy", "en-GB")
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =116
+                        X: =325
+                        Y: =92
+                        ZIndex: =3
+
+                    NextArrow3 As icon.ChevronRight:
+                        AccessibleLabel: =Self.Tooltip
+                        Color: =RGBA(166, 166, 166, 1)
+                        Height: =50
+                        Icon: =Icon.ChevronRight
+                        OnSelect: |
+                            =Set(varDetalles, true);
+                            Set(varVacaciones,ThisItem.ID)
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        Tooltip: ="View item details"
+                        Width: =50
+                        X: =Parent.TemplateWidth - Self.Width - 12
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =4
+
+                    Separator4 As rectangle:
+                        BorderColor: =RGBA(186, 202, 226, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =1
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                        ZIndex: =5
+
+                    Rectangle4 As rectangle:
+                        Height: =Parent.TemplateHeight - Separator4.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                        ZIndex: =6
+
+                    Icon5 As icon.Person:
+                        Icon: =Icon.Person
+                        OnSelect: =Select(Parent)
+                        X: =27
+                        Y: =35
+                        ZIndex: =7
+
+                    Label2 As label:
+                        Font: =Font.Verdana
+                        Height: =22
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        Text: |-
+                            ="Inicio de vacaciones: "
+                        Width: =210
+                        X: =115
+                        Y: =59
+                        ZIndex: =8
+
+                    Label2_1 As label:
+                        Font: =Font.Verdana
+                        Height: =35
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        Text: |-
+                            ="Fin de vacaciones: "
+                        Width: =210
+                        X: =115
+                        Y: =83
+                        ZIndex: =9
+
+                    Label2_2 As label:
+                        Font: =Font.Verdana
+                        Height: =22
+                        OnSelect: =Select(Parent)
+                        Text: |-
+                            ="Estatus de solicitud: "
+                        Width: =210
+                        X: =517
+                        Y: =51
+                        ZIndex: =10
+
+                    Subtitle3_1 As label:
+                        Align: =Align.Center
+                        DisabledColor: =
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =21
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: =ThisItem.estatusSolicitud.Value
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =102
+                        X: =714
+                        Y: =52
+                        ZIndex: =12
+
+            ContainerVacacionesDetalles As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                Fill: =RGBA(241, 244, 249, 1)
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =5
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Visible: =If(varDetalles && Gallery1.Selected.MenuID = 5, true)
+                ZIndex: =6
+
+                Icon7 As icon.CancelBadge:
+                    AlignInContainer: =AlignInContainer.End
+                    Height: =40
+                    Icon: =Icon.CancelBadge
+                    OnSelect: =Set(varDetalles, false)
+                    PaddingTop: =10
+                    Width: =70
+                    ZIndex: =1
+
+                FormViewer1 As formViewer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DataSource: =Vacaciones
+                    Item: =GalleryVacaciones.Selected
+                    LayoutMinHeight: =250
+                    LayoutMinWidth: =400
+                    ZIndex: =2
+
+                    "'Created By_DataCard1' As typedDataCard.comboBoxViewCard":
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Author"
+                        Default: =ThisItem.'Created By'
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"Author")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =59
+                        Required: =false
+                        Update: =DataCardValue16.Selected
+                        Width: =348
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                        DataCardKey16 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: |-
+                                ="Solicitado por:"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =42
+                            ZIndex: =1
+
+                        DataCardValue16 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            ChevronHoverFill: =RGBA(227, 234, 243, 1)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["DisplayName","Email","Picture"]
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Items: =Choices([@Vacaciones].'Created By')
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["DisplayName"]
+                            SearchItems: =Choices(Vacaciones.'Created By',DataCardValue16.SearchText)
+                            SelectMultiple: =false
+                            Template: =ListItemTemplate.Person
+                            Width: =Parent.Width - 60
+                            X: =42
+                            Y: =34
+                            ZIndex: =2
+
+                        ErrorMessage11 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue16.Y + DataCardValue16.Height
+                            ZIndex: =3
+
+                        StarVisible11 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey16.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey16.Y
+                            ZIndex: =4
+
+                    desde_DataCard2 As typedDataCard.textualViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="desde"
+                        Default: =ThisItem.desde
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"desde")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =40
+                        Required: =false
+                        Width: =348
+                        X: =1
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey9 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Desde"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            ZIndex: =1
+
+                        DataCardValue9 As label:
+                            AutoHeight: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =27
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Text(ThisItem.desde, "dd/mm/yyyy", "en-GB")
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =46
+                            ZIndex: =2
+
+                    hasta_DataCard2 As typedDataCard.textualViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="hasta"
+                        Default: =ThisItem.hasta
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"hasta")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =40
+                        Required: =false
+                        Width: =348
+                        X: =2
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey10 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Hasta"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            ZIndex: =1
+
+                        DataCardValue10 As label:
+                            AutoHeight: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =27
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Text(ThisItem.hasta, "dd/mm/yyyy", "en-GB")
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =47
+                            ZIndex: =2
+
+                    diasSolicitados_DataCard2 As typedDataCard.textualViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="diasSolicitados"
+                        Default: =ThisItem.diasSolicitados
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"diasSolicitados")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =40
+                        Required: =false
+                        Width: =348
+                        X: =0
+                        Y: =1
+                        ZIndex: =2
+
+                        DataCardKey11 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Días solicitados"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =42
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue11 As label:
+                            AutoHeight: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =27
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Default
+                            Width: =Parent.Width - 60
+                            X: =42
+                            Y: =56
+                            ZIndex: =2
+
+                    estatusSolicitud_DataCard2 As typedDataCard.comboBoxViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="estatusSolicitud"
+                        Default: =ThisItem.estatusSolicitud
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"estatusSolicitud")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue13.Selected
+                        Width: =348
+                        X: =1
+                        Y: =1
+                        ZIndex: =2
+
+                        DataCardKey13 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Estatus de solicitud"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =9
+                            ZIndex: =1
+
+                        DataCardValue13 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["Value"]
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =29
+                            Items: =Choices([@Vacaciones].estatusSolicitud)
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            SearchFields: =["Value"]
+                            SearchItems: =Choices(Vacaciones.estatusSolicitud,DataCardValue13.SearchText)
+                            SelectMultiple: =false
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =43
+                            ZIndex: =2
+
+                        ErrorMessage1 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue13.Y + DataCardValue13.Height
+                            ZIndex: =3
+
+                        StarVisible1 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey13.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey13.Y
+                            ZIndex: =4
+
+                    estatusVacaciones_DataCard2 As typedDataCard.comboBoxViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="estatusVacaciones"
+                        Default: =ThisItem.estatusVacaciones
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"estatusVacaciones")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue14.Selected
+                        Width: =348
+                        X: =2
+                        Y: =1
+                        ZIndex: =2
+
+                        DataCardKey14 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Estatus de vacaciones"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue14 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["Value"]
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Items: =Choices([@Vacaciones].estatusVacaciones)
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["Value"]
+                            SearchItems: =Choices(Vacaciones.estatusVacaciones,DataCardValue14.SearchText)
+                            SelectMultiple: =false
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =44
+                            ZIndex: =2
+
+                        ErrorMessage9 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue14.Y + DataCardValue14.Height
+                            ZIndex: =3
+
+                        StarVisible9 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey14.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey14.Y
+                            ZIndex: =4
+
+                    reemplazo_DataCard2 As typedDataCard.comboBoxViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="reemplazo"
+                        Default: =ThisItem.reemplazo
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"reemplazo")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue15.Selected
+                        Visible: =If(IsBlank(ThisItem.reemplazo), false, true)
+                        Width: =348
+                        X: =0
+                        Y: =2
+                        ZIndex: =2
+
+                        DataCardKey15 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Personal que podría cubrir"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =45
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue15 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["DisplayName","Email","Picture"]
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Items: =Choices([@Vacaciones].reemplazo)
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["DisplayName"]
+                            SearchItems: =Choices(Vacaciones.reemplazo,DataCardValue15.SearchText)
+                            SelectMultiple: =false
+                            Template: =ListItemTemplate.Person
+                            Width: =Parent.Width - 60
+                            X: =45
+                            Y: =46
+                            ZIndex: =2
+
+                        ErrorMessage10 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue15.Y + DataCardValue15.Height
+                            ZIndex: =3
+
+                        StarVisible10 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey15.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey15.Y
+                            ZIndex: =4
+
+                    comentarios_DataCard2 As typedDataCard.textualViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="comentarios"
+                        Default: =ThisItem.comentarios
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"comentarios")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =40
+                        Required: =false
+                        Visible: =If(IsBlank(ThisItem.comentarios), false, true)
+                        Width: =348
+                        X: =1
+                        Y: =2
+                        ZIndex: =2
+
+                        DataCardKey12 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            PaddingLeft: =0
+                            Text: ="Comentarios"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =39
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue12 As label:
+                            AutoHeight: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =27
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Default
+                            Width: =Parent.Width - 60
+                            X: =39
+                            Y: =44
+                            ZIndex: =2
+
+            ContainerES As groupContainer.verticalAutoLayoutContainer:
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =20
+                PaddingRight: =40
+                PaddingTop: =20
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Visible: =If(And(Gallery1.Selected.MenuID = 6, varEdit), true)
+                ZIndex: =7
+
+                Container5_2 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.None
+                    Height: =80
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =50
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =200
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    PaddingRight: =20
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Visible: =If(And(Gallery1.Selected.MenuID = 6,varEdit), true)
+                    Width: =300
+                    ZIndex: =1
+
+                    Icon9 As icon.Add:
+                        AlignInContainer: =AlignInContainer.Center
+                        Height: =45
+                        Icon: =Icon.Reload
+                        OnSelect: |-
+                            =Clear(colReg);
+                                ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                                    Patch(colReg,Defaults(colReg),
+                                        {
+                                            ID: ID,
+                                            'Created By': 'Created By'.Email,
+                                            FechaHora: FechaHora,
+                                            SalidaComida: SalidaComida,
+                                            EntradaComida: EntradaComida,
+                                            FechaHoraSalida: FechaHoraSalida,
+                                            Validacion: Validacion,
+                                            ValidacionText: ValidacionText
+                                        }
+                                    )
+                                );
+                                Set(aux, LookUp(colReg,
+                                    And(/*'Created By' =User().Email,*/ 
+                                        ValidacionText = Text(Today(), "dd/mm/yyyy")
+                                    ),SalidaComida
+                                ))
+                        Visible: =false
+                        Width: =45
+                        ZIndex: =1
+
+                    btnEntrada As button:
+                        DisplayMode: |-
+                            =If(CountRows(colReg) > 0,
+                                DisplayMode.Disabled,
+                                DisplayMode.Edit
+                            )
+                        Font: =Font.Verdana
+                        OnSelect: |-
+                            =//Este es para la entrada
+                            Set(varDateHour, Text( Now(), "dd/mm/yyyy hh:mm:ss" ));
+                            
+                            Patch(EntradasSalidas,{
+                                Title:Text(Now()),
+                                FechaHora:varDateHour,
+                                Validacion:Today(),
+                                ValidacionText:Text(Today(),"dd/mm/yyyy")
+                            });
+                            
+                             
+                            
+                            Set(varEntrada, true);
+                            Set(varSalida, false);
+                            Set(varVisible, true);
+                            Set(varVisibleEntrada, true);
+                            
+                             
+                            
+                            Clear(colReg);
+                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                                Patch(colReg,Defaults(colReg),
+                                    {
+                                        ID: ID,
+                                        'Created By': 'Created By'.Email,
+                                        FechaHora: FechaHora,
+                                        SalidaComida: SalidaComida,
+                                        EntradaComida: EntradaComida,
+                                        FechaHoraSalida: FechaHoraSalida,
+                                        Validacion: Validacion,
+                                        ValidacionText: ValidacionText
+                                    }
+                                )
+                            );
+                            Set(aux, LookUp(colReg,
+                                And(/*'Created By' =User().Email,*/ 
+                                    ValidacionText = Text(Today(), "dd/mm/yyyy")
+                                ),SalidaComida
+                            ));
+                            Set(varIDD, LookUp(colReg,
+                                And(/*'Created By' =User().Email,*/ 
+                                    ValidacionText = Text(Today(), "dd/mm/yyyy")
+                                ),ID
+                            ));
+                            
+                             
+                            
+                            /*Notify("Registrando....", NotificationType.Information,4000);
+                            If(RegistroE.Run(varIDD),
+                                Notify("Registro correcto", NotificationType.Success, 4000),
+                                Notify("Error", NotificationType.Error, 4000)
+                            );
+                            */
+                        Size: =14
+                        Text: ="Registrar Entrada"
+                        Visible: |-
+                            =//If(varEntrada, false, true)
+                            true
+                                
+                        Width: =220
+                        ZIndex: =2
+
+                    btnSComida As button:
+                        DisplayMode: |
+                            =//DisplayMode.Edit
+                            If(And(IsBlank(LookUp(colReg,'Created By' = User().Email,SalidaComida)),CountRows(colReg) > 0
+                                ,IsBlank(LookUp(colReg,'Created By' = User().Email,FechaHoraSalida))
+                                ),
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled
+                            )
+                        Font: =Font.Verdana
+                        OnSelect: |-
+                            =Set(varDateHour, Text( Now(), "dd/mm/yyyy hh:mm:ss" ));
+                            Set(varEComida, true);
+                            Set(varVisible, false);
+                            Set(varSComida, true);
+                            Set(varVisibleEntrada, false);
+                            //SalidaComida.Run(User().Email,varDateHour)
+                            Set(VarID, LookUp(colReg,'Created By'=User().Email,ID));
+                            Patch(EntradasSalidas,LookUp(EntradasSalidas,ID=VarID),
+                                {
+                                    //Title:Text(Now()),
+                                    //FechaHora:Text(Now()),
+                                    //Validacion:Today(),
+                                    //ValidacionText:Text(Today(),"dd/mm/yyyy")
+                                    SalidaComida:varDateHour
+                                }
+                            );
+                            Clear(colReg);
+                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                                Patch(colReg,Defaults(colReg),
+                                    {
+                                        ID: ID,
+                                        'Created By': 'Created By'.Email,
+                                        FechaHora: FechaHora,
+                                        SalidaComida: SalidaComida,
+                                        EntradaComida: EntradaComida,
+                                        FechaHoraSalida: FechaHoraSalida,
+                                        Validacion: Validacion,
+                                        ValidacionText: ValidacionText
+                                    }
+                                )
+                            );
+                            Set(aux, LookUp(colReg,
+                                And(/*'Created By' =User().Email,*/ 
+                                    ValidacionText = Text(Today(), "dd/mm/yyyy")
+                                ),SalidaComida
+                            ));
+                        Size: =14
+                        Text: ="Salida a comer"
+                        Visible: |-
+                            =//If(varEntrada && varVisible, true, false)
+                            true
+                        Width: =220
+                        ZIndex: =3
+
+                    btnEComida As button:
+                        DisplayMode: |
+                            =If(And(And(CountRows(colReg) > 0,
+                               And(!IsBlank(LookUp(colReg,'Created By' = User().Email,SalidaComida)),
+                                   !IsBlank(LookUp(colReg,'Created By' = User().Email,FechaHora)))) , IsBlank(LookUp(colReg,'Created By' = User().Email,EntradaComida))),
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled
+                            )
+                        Font: =Font.Verdana
+                        OnSelect: |-
+                            =Set(varDateHour, Text( Now(), "dd/mm/yyyy hh:mm:ss" ));
+                            Set(varEComida, false);
+                            Set(varVisibleEComida, true);
+                            //EntradaComida.Run(User().Email, varDateHour)
+                            Set(VarID, LookUp(colReg,'Created By'=User().Email,ID));
+                            Patch(EntradasSalidas,LookUp(EntradasSalidas,ID=VarID),
+                                {
+                                    //Title:Text(Now()),
+                                    //FechaHora:Text(Now()),
+                                    //Validacion:Today(),
+                                    //ValidacionText:Text(Today(),"dd/mm/yyyy")
+                                    //SalidaComida:Text(Now())
+                                    EntradaComida:varDateHour
+                                }
+                            );
+                            Clear(colReg);
+                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                                Patch(colReg,Defaults(colReg),
+                                    {
+                                        ID: ID,
+                                        'Created By': 'Created By'.Email,
+                                        FechaHora: FechaHora,
+                                        SalidaComida: SalidaComida,
+                                        EntradaComida: EntradaComida,
+                                        FechaHoraSalida: FechaHoraSalida,
+                                        Validacion: Validacion,
+                                        ValidacionText: ValidacionText
+                                    }
+                                )
+                            );
+                            Set(aux, LookUp(colReg,
+                                And(/*'Created By' =User().Email,*/ 
+                                    ValidacionText = Text(Today(), "dd/mm/yyyy")
+                                ),SalidaComida
+                            ));
+                        Size: =14
+                        Text: ="Regreso de comer"
+                        Visible: |-
+                            =//If(And(varEntrada, varEComida, !varVisible), true, false)
+                            true
+                        Width: =220
+                        ZIndex: =4
+
+                    btnSalida As button:
+                        DisplayMode: |-
+                            =If(
+                                And(
+                                    Or(
+                                        And(
+                                            CountRows(colReg) > 0,
+                                            IsBlank(
+                                                LookUp(
+                                                    colReg,
+                                                    'Created By' = User().Email,
+                                                    SalidaComida
+                                                )
+                                            )
+                                        ),
+                                        And(
+                                            And(
+                                                !IsBlank(
+                                                    LookUp(
+                                                        colReg,
+                                                        'Created By' = User().Email,
+                                                        SalidaComida
+                                                    )
+                                                ),
+                                                And(
+                                                    !IsBlank(
+                                                        LookUp(
+                                                            colReg,
+                                                            'Created By' = User().Email,
+                                                            EntradaComida
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                            And(
+                                                IsBlank(
+                                                    LookUp(
+                                                        colReg,
+                                                        'Created By' = User().Email,
+                                                        FechaHoraSalida
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    ),
+                                IsBlank(LookUp(colReg,'Created By' = User().Email,FechaHoraSalida))
+                                ),
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled
+                            )
+                        Font: =Font.Verdana
+                        OnSelect: |-
+                            =Set(varEntrada, false);
+                            Set(varSalida, true);
+                            Set(varVisibleEComida, false);
+                            Set(varDateHour, Text( Now(), "dd/mm/yyyy hh:mm:ss" ));
+                            //ActualizacionSalidaF.Run(User().Email,varDateHour)
+                            
+                            Set(VarID, LookUp(colReg,'Created By'=User().Email,ID));
+                            Patch(EntradasSalidas,LookUp(EntradasSalidas,ID=VarID),
+                                {
+                                    //Title:Text(Now()),
+                                    //FechaHora:Text(Now()),
+                                    //Validacion:Today(),
+                                    //ValidacionText:Text(Today(),"dd/mm/yyyy")
+                                    //SalidaComida:Text(Now())
+                                    //EntradaComida:Text(Now())
+                                    FechaHoraSalida:varDateHour
+                                }
+                            );
+                            Clear(colReg);
+                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                                Patch(colReg,Defaults(colReg),
+                                    {
+                                        ID: ID,
+                                        'Created By': 'Created By'.Email,
+                                        FechaHora: FechaHora,
+                                        SalidaComida: SalidaComida,
+                                        EntradaComida: EntradaComida,
+                                        FechaHoraSalida: FechaHoraSalida,
+                                        Validacion: Validacion,
+                                        ValidacionText: ValidacionText
+                                    }
+                                )
+                            );
+                            Set(aux, LookUp(colReg,
+                                And(/*'Created By' =User().Email,*/ 
+                                    ValidacionText = Text(Today(), "dd/mm/yyyy")
+                                ),SalidaComida
+                            ));
+                        Size: =14
+                        Text: ="Registrar Salida"
+                        Visible: |-
+                            =//If(varEntrada, true, false)
+                            true
+                        Width: =220
+                        ZIndex: =5
+
+                ContainerMensajeE As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(175, 191, 224, 1)
+                    Height: =80
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =20
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Visible: |-
+                        =If(And(Gallery1.Selected.MenuID = 6, varEntrada, varVisibleEntrada), true)
+                        /*If(CountRows(colReg) > 0,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )*/
+                        /*If(And(Gallery1.Selected.MenuID = 6, 
+                            IsBlank(LookUp(colReg,'Created By' = User().Email,SalidaComida))), true)
+                            */
+                    ZIndex: =3
+
+                    Icon1 As icon.CheckBadge:
+                        Color: =RGBA(0, 16, 96, 1)
+                        Height: =100
+                        Icon: =Icon.CheckBadge
+                        PaddingBottom: =30
+                        Width: =100
+                        ZIndex: =1
+
+                    Label4_1 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Su entrada ha sido registrada correctamente con los siguientes datos: "
+                        Width: =400
+                        ZIndex: =2
+
+                    Label5 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =User().FullName
+                        Width: =400
+                        ZIndex: =3
+
+                    Label4_2 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Fecha y hora de entrada: " 
+                        Width: =230
+                        ZIndex: =4
+
+                    Label5_1 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =varDateHour
+                        Width: =230
+                        ZIndex: =5
+
+                ContainerMensajeS As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(202, 202, 202, 1)
+                    Height: =80
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =20
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Visible: |
+                        =If(And(Gallery1.Selected.MenuID = 6, varSalida), true)
+                    Width: =450
+                    ZIndex: =4
+
+                    Icon6 As icon.Leave:
+                        Height: =100
+                        Icon: =Icon.Leave
+                        PaddingBottom: =30
+                        Width: =100
+                        ZIndex: =1
+
+                    Label4_3 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Su salida ha sido registrada correctamente con los siguientes datos: "
+                        Width: =400
+                        ZIndex: =2
+
+                    Label5_2 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =User().FullName
+                        Width: =400
+                        ZIndex: =3
+
+                    Label4_4 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Fecha y hora de salida: " 
+                        Width: =230
+                        ZIndex: =4
+
+                    Label5_3 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =varDateHour
+                        Width: =230
+                        ZIndex: =5
+
+                ContainerMensajeSC As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(241, 244, 249, 1)
+                    Height: =80
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =20
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Visible: |
+                        =If(And(Gallery1.Selected.MenuID = 6, varSComida, !varVisible, varEComida, !varVisibleEntrada), true)
+                    Width: =450
+                    ZIndex: =5
+
+                    Icon8 As icon.ForkKnife:
+                        Height: =100
+                        Icon: =Icon.ForkKnife
+                        PaddingBottom: =20
+                        Width: =100
+                        ZIndex: =1
+
+                    Label4_5 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Su salida a comer ha sido registrada correctamente con los siguientes datos: "
+                        Width: =400
+                        ZIndex: =3
+
+                    Label5_4 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =User().FullName
+                        Width: =400
+                        ZIndex: =4
+
+                    Label4_6 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Fecha y hora de salida a comer: " 
+                        Width: =300
+                        ZIndex: =5
+
+                    Label5_5 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =varDateHour
+                        Width: =230
+                        ZIndex: =6
+
+                ContainerMensajeEC As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(214, 223, 238, 1)
+                    Height: =80
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =20
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Visible: |
+                        =If(And(Gallery1.Selected.MenuID = 6, varVisibleEComida, !varEComida), true)
+                    Width: =450
+                    ZIndex: =6
+
+                    Icon8_1 As icon.ForkKnife:
+                        Height: =100
+                        Icon: =Icon.ForkKnife
+                        PaddingBottom: =20
+                        Width: =100
+                        ZIndex: =1
+
+                    Label4_7 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Su regreso de comer ha sido registrado correctamente con los siguientes datos: "
+                        Width: =400
+                        ZIndex: =3
+
+                    Label5_6 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =User().FullName
+                        Width: =400
+                        ZIndex: =4
+
+                    Label4_8 As label:
+                        Align: =Align.Justify
+                        Font: =Font.Verdana
+                        Text: |-
+                            ="Fecha y hora de entrada de comer: " 
+                        Width: =300
+                        ZIndex: =5
+
+                    Label5_7 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: =varDateHour
+                        Width: =230
+                        ZIndex: =6
+
+            Container4_1 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =If(And(Gallery1.Selected.MenuID = 6,varEdit), true)
+                X: =40
+                Y: =40
+                ZIndex: =8
+
+                Container4 As groupContainer.horizontalAutoLayoutContainer:
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(219, 219, 219, 1)
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    ZIndex: =1
+
+                    Label13 As label:
+                        Align: =Align.Center
+                        Text: ="Hora de entrada"
+                        ZIndex: =1
+
+                    Label14 As label:
+                        Align: =Align.Center
+                        Text: ="Salida a comer"
+                        ZIndex: =2
+
+                    Label14_1 As label:
+                        Align: =Align.Center
+                        Text: ="Regreso de comer"
+                        Width: =170
+                        ZIndex: =3
+
+                    Label14_2 As label:
+                        Align: =Align.Center
+                        Text: ="Hora de salida"
+                        ZIndex: =4
+
+                Container4_2 As groupContainer.horizontalAutoLayoutContainer:
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(237, 237, 237, 1)
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    ZIndex: =2
+
+                    Label13_1 As label:
+                        Align: =Align.Center
+                        FontWeight: =FontWeight.Lighter
+                        Text: =Right(LookUp(colReg,'Created By'=User().Email,FechaHora),8)
+                        ZIndex: =1
+
+                    Label13_2 As label:
+                        PaddingBottom: =0
+                        PaddingTop: =0
+                        Text: =Right(LookUp(colReg,'Created By'=User().Email,SalidaComida),8)
+                        ZIndex: =2
+
+                    Label13_3 As label:
+                        Text: =Right(LookUp(colReg,'Created By'=User().Email,EntradaComida),8)
+                        ZIndex: =3
+
+                    Label13_4 As label:
+                        Text: =Right(LookUp(colReg,'Created By'=User().Email,FechaHoraSalida),8)
+                        ZIndex: =4
+
+            ContainerPermisosRegistro As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingTop: =10
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Visible: =If(And(Gallery1.Selected.MenuID = 7,varEdit) && varCalendario = false, true)
+                ZIndex: =9
+
+                "GalleryVacaciones_1 As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver5.0'":
+                    DelayItemLoading: =true
+                    Items: =Permisos
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =125
+                    Visible: |-
+                        =//true
+                        If(IsEmpty(Permisos), false, true)
+                    ZIndex: =1
+
+                    Title4_1 As label:
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.'Created By'.DisplayName
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - 185
+                        X: =115
+                        Y: =26
+                        ZIndex: =1
+
+                    Subtitle3_3 As label:
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =2
+                        Text: |-
+                            =Text(ThisItem.HoraDesde, "hh:mm", "en-GB")
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =116
+                        X: =304
+                        Y: =88
+                        ZIndex: =2
+
+                    NextArrow3_1 As icon.ChevronRight:
+                        AccessibleLabel: =Self.Tooltip
+                        Color: =RGBA(166, 166, 166, 1)
+                        Height: =50
+                        Icon: =Icon.ChevronRight
+                        OnSelect: |
+                            =Set(varDetalles, true);
+                            Set(varVacaciones,ThisItem.ID)
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        Tooltip: ="View item details"
+                        Width: =50
+                        X: =Parent.TemplateWidth - Self.Width - 12
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =4
+
+                    Separator4_1 As rectangle:
+                        BorderColor: =RGBA(186, 202, 226, 1)
+                        BorderThickness: =1
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =1
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                        ZIndex: =5
+
+                    Rectangle4_1 As rectangle:
+                        Height: =Parent.TemplateHeight - Separator4_1.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                        ZIndex: =6
+
+                    Icon5_1 As icon.Person:
+                        Icon: =Icon.Clock
+                        OnSelect: =Select(Parent)
+                        X: =27
+                        Y: =35
+                        ZIndex: =7
+
+                    Label2_4 As label:
+                        Font: =Font.Verdana
+                        Height: =22
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        Text: |-
+                            ="Hora de inicio: "
+                        Width: =210
+                        X: =115
+                        Y: =89
+                        ZIndex: =8
+
+                    Label2_5 As label:
+                        Font: =Font.Verdana
+                        Height: =35
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        Text: |-
+                            ="Hora de finalización: "
+                        Width: =210
+                        X: =456
+                        Y: =81
+                        ZIndex: =9
+
+                    Label2_3 As label:
+                        Font: =Font.Verdana
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        Text: |-
+                            ="Fecha de permiso: "
+                        Width: =174
+                        X: =112
+                        Y: =58
+                        ZIndex: =10
+
+                    Subtitle3_4 As label:
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =2
+                        Text: |-
+                            =Text(ThisItem.HoraHasta, "hh:mm", "en-GB")
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =116
+                        X: =655
+                        Y: =87
+                        ZIndex: =11
+
+                    Subtitle3_5 As label:
+                        Align: =Align.Center
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =2
+                        Text: =Text(ThisItem.'Día Solicitado', "dd/mm/yyyy", "en-GB")
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =116
+                        X: =304
+                        Y: =58
+                        ZIndex: =12
+
+                    Label2_6 As label:
+                        Font: =Font.Verdana
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        Text: |-
+                            ="Estatus:  "
+                        Width: =174
+                        X: =456
+                        Y: =51
+                        ZIndex: =13
+
+                    Subtitle3_6 As label:
+                        DisplayMode: =DisplayMode.View
+                        Font: =Font.Verdana
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =2
+                        Text: |-
+                            =Text(ThisItem.Estatus.Value, "hh:mm", "en-GB")
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =116
+                        X: =655
+                        Y: =51
+                        ZIndex: =14
+
