@@ -458,24 +458,44 @@
                         ZIndex: =3
 
                         Checkbox1 As checkbox:
+                            DisplayMode: |-
+                                =If(And(varaux >= 2, !Checkbox1.Value),
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                                )
                             OnCheck: =Set(varaux , varaux + 1);
                             OnUncheck: =Set(varaux , varaux - 1);
                             Text: ="Lunes"
                             ZIndex: =2
 
                         Checkbox2 As checkbox:
+                            DisplayMode: |-
+                                =If(And(varaux >= 2, !Checkbox2.Value),
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                                )
                             OnCheck: =Set(varaux , varaux + 1);
                             OnUncheck: =Set(varaux , varaux - 1);
                             Text: ="Martes"
                             ZIndex: =3
 
                         Checkbox3 As checkbox:
+                            DisplayMode: |-
+                                =If(And(varaux >= 2, !Checkbox3.Value),
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                                )
                             OnCheck: =Set(varaux , varaux + 1);
                             OnUncheck: =Set(varaux , varaux - 1);
                             Text: ="Miércoles"
                             ZIndex: =4
 
                         Checkbox4 As checkbox:
+                            DisplayMode: |-
+                                =If(And(varaux >= 2, !Checkbox4.Value),
+                                    DisplayMode.Disabled,
+                                    DisplayMode.Edit
+                                )
                             OnCheck: =Set(varaux , varaux + 1);
                             OnUncheck: =Set(varaux , varaux - 1);
                             Text: ="Jueves"
@@ -484,7 +504,7 @@
                         Checkbox5 As checkbox:
                             DisplayMode: |-
                                 =//DisplayMode.Edit
-                                If(varaux >= 2,
+                                If(And(varaux >= 2, !Checkbox5.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
