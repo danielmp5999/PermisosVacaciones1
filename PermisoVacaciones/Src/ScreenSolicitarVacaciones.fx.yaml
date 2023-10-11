@@ -437,15 +437,22 @@
                         AlignInContainer: =AlignInContainer.Center
                         DisplayMode: |-
                             =//DisplayMode.Edit
-                            If(Or(varaux >= 1, varisCont = 0),
+                            If(And(Or(varaux >= 1, varisCont = 0), Or(Text(Now(),"dddd","es-MX")="miércoles",Text(Now(),"dddd","es-MX")="viernes")),
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
                         Fill: =RGBA(50, 96, 186, 1)
-                        OnSelect: |
+                        OnSelect: |-
                             =Set(varisHeight, 300);
                             Set(varaux , 0);
                             Set(varisCont , varisCont + 1);
+                            Set(varisDay, Text(Now(),"dddd","es-MX"));
+                            Switch(varisDay,
+                                "jueves",
+                                Set(varisSem, 0);
+                                "viernes",
+                                Set(varisSem, 0);
+                            )
                         Text: |
                             =If(varisCont <= 0,
                                 "Registrar home office",
@@ -471,9 +478,9 @@
                         LayoutMode: =LayoutMode.Auto
                         ZIndex: =3
 
-                        Checkbox1 As checkbox:
+                        CheckboxLunes As checkbox:
                             DisplayMode: |-
-                                =If(And(varaux >= 2, !Checkbox1.Value),
+                                =If(And(varaux >= 2, !CheckboxLunes.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
@@ -482,9 +489,9 @@
                             Text: ="Lunes"
                             ZIndex: =2
 
-                        Checkbox2 As checkbox:
+                        CheckboxMartes As checkbox:
                             DisplayMode: |-
-                                =If(And(varaux >= 2, !Checkbox2.Value),
+                                =If(And(varaux >= 2, !CheckboxMartes.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
@@ -493,9 +500,9 @@
                             Text: ="Martes"
                             ZIndex: =3
 
-                        Checkbox3 As checkbox:
+                        CheckboxMiercoles As checkbox:
                             DisplayMode: |-
-                                =If(And(varaux >= 2, !Checkbox3.Value),
+                                =If(And(varaux >= 2, !CheckboxMiercoles.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
@@ -504,9 +511,9 @@
                             Text: ="Miércoles"
                             ZIndex: =4
 
-                        Checkbox4 As checkbox:
+                        CheckboxJueves As checkbox:
                             DisplayMode: |-
-                                =If(And(varaux >= 2, !Checkbox4.Value),
+                                =If(And(varaux >= 2, !CheckboxJueves.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
@@ -515,10 +522,10 @@
                             Text: ="Jueves"
                             ZIndex: =5
 
-                        Checkbox5 As checkbox:
+                        CheckboxViernes As checkbox:
                             DisplayMode: |-
                                 =//DisplayMode.Edit
-                                If(And(varaux >= 2, !Checkbox5.Value),
+                                If(And(varaux >= 2, !CheckboxViernes.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
