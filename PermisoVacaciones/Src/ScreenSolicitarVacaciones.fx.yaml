@@ -436,7 +436,7 @@
                         OnSelect: |-
                             =Set(varisHeight, 300);
                             Set(varaux , 0);
-                        Text: ="Registrar home office"
+                        Text: ="Registrar home officeeeeeeeeeeeee"
                         Width: =250
                         ZIndex: =1
 
