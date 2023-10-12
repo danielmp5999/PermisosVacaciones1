@@ -437,7 +437,8 @@
                         AlignInContainer: =AlignInContainer.Center
                         DisplayMode: |-
                             =//DisplayMode.Edit
-                            If(And(Or(varaux >= 1, varisCont = 0), Or(Text(Now(),"dddd","es-MX")="miércoles",Text(Now(),"dddd","es-MX")="viernes")),
+                            If(And(//Or(varaux >= 1, varisCont = 0), 
+                            Or(Text(Now(),"dddd","es-MX")="miércoles",Text(Now(),"dddd","es-MX")="viernes")),
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
@@ -445,11 +446,34 @@
                         OnSelect: |-
                             =Set(varisHeight, 300);
                             Set(varaux , 0);
-                            Set(varisCont , varisCont + 1);
+                            Set(varisCont ,  1);
                             Set(varisDay, Text(Now(),"dddd","es-MX"));
                             Switch(varisDay,
-                                "jueves",
+                                "miércoles",
                                 Set(varisSem, 0);
+                                Set(varFecha1,Blank());
+                                Set(varFecha2,Blank());
+                                If(CheckboxLunes.Value,
+                                    If(varaux = 1,
+                                        Set(varFecha1,DateAdd(Now(),5,TimeUnit.Days));
+                                        //Set(varFecha1,DateAdd(Now(),5,TimeUnit.Days))
+                                        
+                                    );
+                                    
+                                    
+                                    ,
+                                    CheckboxMartes.Value,
+                                    Set(varFecha1,DateAdd(Now(),6,TimeUnit.Days));
+                                    ,
+                                    CheckboxMiercoles.Value,
+                                    Set(varFecha1,DateAdd(Now(),7,TimeUnit.Days));
+                                    ,
+                                    CheckboxJueves.Value,
+                                    Set(varFecha1,DateAdd(Now(),8,TimeUnit.Days));
+                                    ,
+                                    CheckboxViernes.Value,
+                                    Set(varFecha1,DateAdd(Now(),9,TimeUnit.Days));
+                                );
                                 "viernes",
                                 Set(varisSem, 0);
                             )
@@ -484,8 +508,16 @@
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
-                            OnCheck: =Set(varaux , varaux + 1);
-                            OnUncheck: =Set(varaux , varaux - 1);
+                            OnCheck: |-
+                                =Set(varaux , varaux + 1);
+                                If(varaux > 1,
+                                    Set(vardia,1)
+                                )
+                            OnUncheck: |-
+                                =Set(varaux , varaux - 1);
+                                If(varaux <= 1,
+                                    Set(vardia,0)
+                                )
                             Text: ="Lunes"
                             ZIndex: =2
 
@@ -495,8 +527,16 @@
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
-                            OnCheck: =Set(varaux , varaux + 1);
-                            OnUncheck: =Set(varaux , varaux - 1);
+                            OnCheck: |-
+                                =Set(varaux , varaux + 1);
+                                If(varaux > 1,
+                                    Set(vardia,2)
+                                )
+                            OnUncheck: |-
+                                =Set(varaux , varaux - 1);
+                                If(varaux <= 1,
+                                    Set(vardia,0)
+                                )
                             Text: ="Martes"
                             ZIndex: =3
 
@@ -506,8 +546,16 @@
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
-                            OnCheck: =Set(varaux , varaux + 1);
-                            OnUncheck: =Set(varaux , varaux - 1);
+                            OnCheck: |-
+                                =Set(varaux , varaux + 1);
+                                If(varaux > 1,
+                                    Set(vardia,3)
+                                )
+                            OnUncheck: |-
+                                =Set(varaux , varaux - 1);
+                                If(varaux <= 1,
+                                    Set(vardia,0)
+                                )
                             Text: ="Miércoles"
                             ZIndex: =4
 
@@ -517,8 +565,16 @@
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
-                            OnCheck: =Set(varaux , varaux + 1);
-                            OnUncheck: =Set(varaux , varaux - 1);
+                            OnCheck: |-
+                                =Set(varaux , varaux + 1);
+                                If(varaux > 1,
+                                    Set(vardia,4)
+                                )
+                            OnUncheck: |-
+                                =Set(varaux , varaux - 1);
+                                If(varaux <= 1,
+                                    Set(vardia,0)
+                                )
                             Text: ="Jueves"
                             ZIndex: =5
 
@@ -529,11 +585,27 @@
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
-                            OnCheck: =Set(varaux , varaux + 1);
+                            OnCheck: |-
+                                =Set(varaux , varaux + 1);
+                                If(varaux > 1,
+                                    Set(vardia,5)
+                                )
                             OnSelect: =
-                            OnUncheck: =Set(varaux , varaux - 1);
+                            OnUncheck: |-
+                                =Set(varaux , varaux - 1);
+                                If(varaux <= 1,
+                                    Set(vardia,0)
+                                )
                             Text: ="Viernes"
                             ZIndex: =6
+
+                    Label1 As label:
+                        Text: ="Fecha "&varFecha1 & varaux
+                        ZIndex: =4
+
+                    Label4 As label:
+                        Text: ="Fecha "&varFecha2 & vardia
+                        ZIndex: =5
 
             ContainerVacaciones As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
