@@ -242,13 +242,16 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/11/2023 19:05:09",
+  "HeaderLastSavedDateTimeUTC": "10/12/2023 00:24:48",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
-    "505ed6d8-930f-45b9-82c0-65c6de1a53af": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/9ece3a11897a49a688aaa90fe45f5a6a\"",
-    "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/c0c96da5f2574fd3a6b46aa1773f5171\"",
-    "84b99b40-200e-4901-953f-64364e9763b4": "\"/providers/microsoft.powerapps/apis/shared_teams/connections/shared-teams-489de138-decf-4f69-a932-568db6a22cfa\"",
-    "d5952d58-afb0-45dc-bf55-f4f43970a50d": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/602c0860c99744608854135f29599242\""
+    "505ed6d8-930f-45b9-82c0-65c6de1a53af": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/7ee3c44c6a0344aa98b01d66e485848d\"",
+    "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/87fe989eec49461e9c83211910dadf10-4518d7a919fdcbb9\"",
+    "84b99b40-200e-4901-953f-64364e9763b4": "\"/providers/microsoft.powerapps/apis/shared_teams/connections/shared-teams-7715a06e-0393-41db-9e69-096fc49d8d80\"",
+    "89ca1aa3-9697-4730-b24b-373083fed2e7": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/58fe6e70-c66f-4210-9140-987899f644ec\"",
+    "98a4ad57-d925-4491-aacb-4f4ec9dad3ef": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/4144bb23-e12f-4b78-a179-839ffe405d5f\"",
+    "d5952d58-afb0-45dc-bf55-f4f43970a50d": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/52dbe5114ee54e8886c1d624a4a0b37b\"",
+    "ee6d70fa-beac-445f-8c86-2ee737bdb26f": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/fde15874-f2c9-477d-9a62-584a7f32af86\""
   },
   "LocalDatabaseReferencesAsEmpty": false,
   "LocalResourceFileNames": {
@@ -256,8 +259,8 @@
     "LogoPrecitool": "0002.png"
   },
   "LocalResourceRootPaths": {
-    "LOGOP": "https://docserverpwaprodwus.blob.core.windows.net/d70761df-47aa-4713-81da-df21955b6d58-1/resource/Assets0Images00001.PNG?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-11T18%3A24%3A52Z&ske=2023-10-12T18%3A39%3A52Z&sks=b&skv=2021-08-06&sv=2021-08-06&spr=https&se=2023-10-12T18%3A39%3A52Z&sr=b&sp=r&sig=3GZ0vakVl%2BbCAGDWjd861l%2FHFpyo0hp23yN0y9B3fhQ%3D",
-    "LogoPrecitool": "https://docserverpwaprodwus.blob.core.windows.net/d70761df-47aa-4713-81da-df21955b6d58-1/resource/Assets0Images00002.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-11T18%3A24%3A52Z&ske=2023-10-12T18%3A39%3A52Z&sks=b&skv=2021-08-06&sv=2021-08-06&spr=https&se=2023-10-12T18%3A39%3A52Z&sr=b&sp=r&sig=03p36UhCAKDxgMnlakye9iUtvnf3Fwm77%2Bb1w5I0VW0%3D"
+    "LOGOP": "https://docserverpwaprodeus.blob.core.windows.net/7ae848f8-739a-4189-b694-bc17233c0bfb-1/resource/Assets0Images00001.PNG?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-12T00%3A23%3A02Z&ske=2023-10-13T00%3A38%3A02Z&sks=b&skv=2021-08-06&sv=2021-08-06&spr=https&se=2023-10-13T00%3A38%3A02Z&sr=b&sp=r&sig=NrKsvOZvoDY6Jz9vqu8d%2BBNZDwvVmSE2ECEd8vuCjAQ%3D",
+    "LogoPrecitool": "https://docserverpwaprodeus.blob.core.windows.net/7ae848f8-739a-4189-b694-bc17233c0bfb-1/resource/Assets0Images00002.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-12T00%3A23%3A02Z&ske=2023-10-13T00%3A38%3A02Z&sks=b&skv=2021-08-06&sv=2021-08-06&spr=https&se=2023-10-13T00%3A38%3A02Z&sr=b&sp=r&sig=SL7dXgRqI4q39rWr1HD18fXkIT3jKMH2WfCaXnatPmw%3D"
   },
   "OldLogoFileName": "logo.jpg",
   "OrderComponentMetadata": {
@@ -784,7 +787,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.7835331,
+    "AnalysisLoadTime": 1.1864559,
     "ControlCount": {
       "213efad290a14de0b8d7635d8d300c38": 1,
       "button": 12,
@@ -807,7 +810,7 @@
       "text": 4,
       "typedDataCard": 18
     },
-    "DeserializationLoadTime": 1.425747
+    "DeserializationLoadTime": 3.5141692
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
