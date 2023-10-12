@@ -1690,7 +1690,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"ScreenSolicitarVacaciones\" is 340, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"ScreenSolicitarVacaciones\" is 338, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
