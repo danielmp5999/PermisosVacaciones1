@@ -437,7 +437,8 @@
                         AlignInContainer: =AlignInContainer.Center
                         DisplayMode: |-
                             =//DisplayMode.Edit
-                            If(And(Or(varaux >= 1, varisCont = 0), Or(Text(Now(),"dddd","es-MX")="miércoles",Text(Now(),"dddd","es-MX")="viernes")),
+                            If(And(//Or(varaux >= 1, varisCont = 0),
+                            Or(Text(Now(),"dddd","es-MX")="miércoles",Text(Now(),"dddd","es-MX")="viernes")),
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
