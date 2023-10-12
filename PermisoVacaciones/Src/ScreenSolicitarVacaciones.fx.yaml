@@ -438,7 +438,7 @@
                         DisplayMode: |-
                             =//DisplayMode.Edit
                             If(And(//Or(varaux >= 1, varisCont = 0),
-                            Or(Text(Now(),"dddd","es-MX")="miércoles",Text(Now(),"dddd","es-MX")="viernes")),
+                            Or(Text(Now(),"dddd","es-MX")="jueves",Text(Now(),"dddd","es-MX")="viernes")),
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
@@ -449,7 +449,7 @@
                             Set(varisCont ,  1);
                             Set(varisDay, Text(Now(),"dddd","es-MX"));
                             Switch(varisDay,
-                                "miércoles",
+                                "jueves",
                                 Set(varisSem, 0);
                                 Set(varFecha1,Blank());
                                 Set(varFecha2,Blank());
@@ -1184,14 +1184,31 @@
 
                     btnVacacionesAceptar As button:
                         Font: =Font.Verdana
-                        OnSelect: |-
-                            =If(SubmitForm(Form1),
+                        OnSelect: |
+                            =/*If(SubmitForm(Form1),
                                 Set(varEdit, false);
                                 ResetForm(Form1);
                                 Notify("Se ha guardado", NotificationType.Success,"4000")
                                 ,   
                                 Notify("No se pudo guardar", NotificationType.Error, "4000")
-                            )
+                            );*/
+                            
+                            Set(VarIsIDPersonal, LookUp(HorarioPersonal,Correo = User().Email,Title));
+                            Set(varIsIDVacaciones, 
+                                Patch(Vacaciones, Defaults(Vacaciones),
+                                    {
+                                        desde:tbxVacaciones_Desde.SelectedDate,
+                                        hasta:tbxVacaciones_Hasta.SelectedDate,
+                                        reemplazo:DataCardValue8
+                                    },
+                                    Form1.Updates
+                                ).ID
+                            );
+                            Patch(Vacaciones, LookUp(Vacaciones, ID = varIsIDVacaciones),
+                                {
+                                    IdPersonal: VarIsIDPersonal
+                                }
+                            );
                         RadiusBottomLeft: =20
                         RadiusBottomRight: =20
                         RadiusTopLeft: =20
