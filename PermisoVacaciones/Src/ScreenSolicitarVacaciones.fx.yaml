@@ -1198,17 +1198,28 @@
                                 Patch(Vacaciones, Defaults(Vacaciones),
                                     {
                                         desde:tbxVacaciones_Desde.SelectedDate,
-                                        hasta:tbxVacaciones_Hasta.SelectedDate,
-                                        reemplazo:DataCardValue8
+                                        hasta:tbxVacaciones_Hasta.SelectedDate
+                                        
                                     },
                                     Form1.Updates
                                 ).ID
                             );
                             Patch(Vacaciones, LookUp(Vacaciones, ID = varIsIDVacaciones),
                                 {
-                                    IdPersonal: VarIsIDPersonal
+                                    IdPersonal: Value(VarIsIDPersonal),
+                                    reemplazo: {
+                                            'odata.type': "Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                    Claims: "i:0#.f|membership|" & Lower(Concat(DataCardValue8.SelectedItems,Mail)),
+                                                    Department: Concat(DataCardValue8.SelectedItems,Department),
+                                                    DisplayName: Concat(DataCardValue8.SelectedItems,DisplayName),
+                                                    Email: Concat(DataCardValue8.SelectedItems,Mail),
+                                                    JobTitle: Concat(DataCardValue8.SelectedItems,JobTitle),
+                                                    Picture: ""
+                                        }
                                 }
                             );
+                            
+                            VacacionesFlujoV2.Run(varIsIDVacaciones)
                         RadiusBottomLeft: =20
                         RadiusBottomRight: =20
                         RadiusTopLeft: =20
