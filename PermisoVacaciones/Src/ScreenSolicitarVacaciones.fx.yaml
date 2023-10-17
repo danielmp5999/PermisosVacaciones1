@@ -1184,7 +1184,7 @@
 
                     btnVacacionesAceptar As button:
                         Font: =Font.Verdana
-                        OnSelect: |
+                        OnSelect: |+
                             =/*If(SubmitForm(Form1),
                                 Set(varEdit, false);
                                 ResetForm(Form1);
@@ -1219,7 +1219,8 @@
                                 }
                             );
                             
-                            VacacionesFlujoV2.Run(varIsIDVacaciones)
+                            VacacionesFlujoV2.Run(Value(varIsIDVacaciones))
+                            
                         RadiusBottomLeft: =20
                         RadiusBottomRight: =20
                         RadiusTopLeft: =20
