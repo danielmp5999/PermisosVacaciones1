@@ -76,11 +76,11 @@
                             ValidacionText: ""
                         }); 
                         Clear(colReg);
-                        ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                        ForAll(Filter(EntradasSalidas,'Creado por'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
                             Patch(colReg,Defaults(colReg),
                                 {
                                     ID: ID,
-                                    'Created By': 'Created By'.Email,
+                                    'Created By': 'Creado por'.Email,
                                     FechaHora: FechaHora,
                                     SalidaComida: SalidaComida,
                                     EntradaComida: EntradaComida,
@@ -1193,7 +1193,7 @@
                                 Notify("No se pudo guardar", NotificationType.Error, "4000")
                             );*/
                             
-                            Set(VarIsIDPersonal, LookUp(HorarioPersonal,Correo = User().Email,Title));
+                            Set(VarIsIDPersonal, LookUp(HorarioPersonal,Correo = User().Email,Título));
                             Set(varIsIDVacaciones, 
                                 Patch(Vacaciones, Defaults(Vacaciones),
                                     {
@@ -1711,7 +1711,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Text: =ThisItem.'Created By'.DisplayName
+                        Text: =ThisItem.'Creado por'.DisplayName
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Parent.TemplateWidth - 185
                         X: =115
@@ -1887,7 +1887,7 @@
                     "'Created By_DataCard1' As typedDataCard.comboBoxViewCard":
                         BorderStyle: =BorderStyle.Solid
                         DataField: ="Author"
-                        Default: =ThisItem.'Created By'
+                        Default: =ThisItem.'Creado por'
                         DisplayMode: =DisplayMode.View
                         DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"Author")
                         Fill: =RGBA(0, 0, 0, 0)
@@ -1917,10 +1917,10 @@
                             DisplayFields: =["DisplayName","Email","Picture"]
                             DisplayMode: =Parent.DisplayMode
                             Fill: =RGBA(0, 0, 0, 0)
-                            Items: =Choices([@Vacaciones].'Created By')
+                            Items: =Choices([@Vacaciones].'Creado por')
                             PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                             SearchFields: =["DisplayName"]
-                            SearchItems: =Choices(Vacaciones.'Created By',DataCardValue16.SearchText)
+                            SearchItems: =Choices(Vacaciones.'Creado por',DataCardValue16.SearchText)
                             SelectMultiple: =false
                             Template: =ListItemTemplate.Person
                             Width: =Parent.Width - 60
@@ -2353,11 +2353,11 @@
                         Icon: =Icon.Reload
                         OnSelect: |-
                             =Clear(colReg);
-                                ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                                ForAll(Filter(EntradasSalidas,'Creado por'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
                                     Patch(colReg,Defaults(colReg),
                                         {
                                             ID: ID,
-                                            'Created By': 'Created By'.Email,
+                                            'Created By': 'Creado por'.Email,
                                             FechaHora: FechaHora,
                                             SalidaComida: SalidaComida,
                                             EntradaComida: EntradaComida,
@@ -2388,7 +2388,7 @@
                             Set(varDateHour, Text( Now(), "dd/mm/yyyy hh:mm:ss" ));
                             
                             Patch(EntradasSalidas,{
-                                Title:Text(Now()),
+                                Título:Text(Now()),
                                 FechaHora:varDateHour,
                                 Validacion:Today(),
                                 ValidacionText:Text(Today(),"dd/mm/yyyy")
@@ -2404,11 +2404,11 @@
                              
                             
                             Clear(colReg);
-                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                            ForAll(Filter(EntradasSalidas,'Creado por'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
                                 Patch(colReg,Defaults(colReg),
                                     {
                                         ID: ID,
-                                        'Created By': 'Created By'.Email,
+                                        'Created By': 'Creado por'.Email,
                                         FechaHora: FechaHora,
                                         SalidaComida: SalidaComida,
                                         EntradaComida: EntradaComida,
@@ -2474,11 +2474,11 @@
                                 }
                             );
                             Clear(colReg);
-                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                            ForAll(Filter(EntradasSalidas,'Creado por'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
                                 Patch(colReg,Defaults(colReg),
                                     {
                                         ID: ID,
-                                        'Created By': 'Created By'.Email,
+                                        'Created By': 'Creado por'.Email,
                                         FechaHora: FechaHora,
                                         SalidaComida: SalidaComida,
                                         EntradaComida: EntradaComida,
@@ -2527,11 +2527,11 @@
                                 }
                             );
                             Clear(colReg);
-                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                            ForAll(Filter(EntradasSalidas,'Creado por'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
                                 Patch(colReg,Defaults(colReg),
                                     {
                                         ID: ID,
-                                        'Created By': 'Created By'.Email,
+                                        'Created By': 'Creado por'.Email,
                                         FechaHora: FechaHora,
                                         SalidaComida: SalidaComida,
                                         EntradaComida: EntradaComida,
@@ -2625,11 +2625,11 @@
                                 }
                             );
                             Clear(colReg);
-                            ForAll(Filter(EntradasSalidas,'Created By'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
+                            ForAll(Filter(EntradasSalidas,'Creado por'.Email=User().Email, ValidacionText = Text(Today(), "dd/mm/yyyy")),
                                 Patch(colReg,Defaults(colReg),
                                     {
                                         ID: ID,
-                                        'Created By': 'Created By'.Email,
+                                        'Created By': 'Creado por'.Email,
                                         FechaHora: FechaHora,
                                         SalidaComida: SalidaComida,
                                         EntradaComida: EntradaComida,
@@ -3018,7 +3018,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Text: =ThisItem.'Created By'.DisplayName
+                        Text: =ThisItem.'Creado por'.DisplayName
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Parent.TemplateWidth - 185
                         X: =115
