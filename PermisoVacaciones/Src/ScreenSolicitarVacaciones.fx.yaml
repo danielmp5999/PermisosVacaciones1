@@ -592,18 +592,21 @@
                                     Set(vardia1,5)
                                 )
                             OnSelect: =
-                            OnUncheck: |-
+                            OnUncheck: |
                                 =Set(varaux , varaux - 1);
                                 If(varaux <= 1,
                                     Set(vardia,0)
-                                )
-                                ;
-                                
+                                );
                                 If(varaux = 0,
                                     Set(vardia1,0)
                                 )
                             Text: ="Viernes"
                             ZIndex: =6
+
+                        Button3 As button:
+                            OnSelect: =
+                            Text: ="Button"
+                            ZIndex: =7
 
                     Label1 As label:
                         Text: ="Contador "&varFecha1 & varaux 
