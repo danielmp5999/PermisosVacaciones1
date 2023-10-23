@@ -63,6 +63,24 @@
                     );
                     If(Gallery1.Selected.MenuID = 1,
                         Set(varPrin, true);
+                        Set(Fecha, ObtenerIntervalodeSemanaSiguiente.Run());
+                        Set(FechaS, Left(Fecha.fechainicio,10));
+                        Set(Anio, Left(FechaS,4));
+                        Set(FechaS, Right(FechaS,5));
+                        Set(Mes, Left(FechaS,2));
+                        Set(Dia, Right(FechaS,2));
+                        Set(FechaInicio, Date(Anio,Mes,Dia));
+                    
+                        //Set(Fecha, ObtenerIntervalodeSemanaSiguiente.Run());
+                        Set(FechaS, Left(Fecha.fechafinal,10));
+                        Set(Anio, Left(FechaS,4));
+                        Set(FechaS, Right(FechaS,5));
+                        Set(Mes, Left(FechaS,2));
+                        Set(Dia, Right(FechaS,2));
+                        Set(FechaFin, Date(Anio,Mes,Dia));
+                    
+                        //Set(FechaInicio, Concatenate(FechaInicio,"/",Left(Fecha.fechainicio,4)));
+                        
                     );
                     If(Gallery1.Selected.MenuID = 6,
                         Collect(colReg,{
@@ -438,7 +456,7 @@
                         DisplayMode: |-
                             =//DisplayMode.Edit
                             If(And(//Or(varaux >= 1, varisCont = 0),
-                            Or(Text(Now(),"dddd","es-MX")="jueves",Text(Now(),"dddd","es-MX")="viernes")),
+                            Or(Text(Now(),"dddd","es-MX")="lunes",Text(Now(),"dddd","es-MX")="viernes")),
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
@@ -449,7 +467,7 @@
                             Set(varisCont ,  1);
                             Set(varisDay, Text(Now(),"dddd","es-MX"));
                             Switch(varisDay,
-                                "jueves",
+                                "lunes",
                                 Set(varisSem, 0);
                                 Set(varFecha1,Blank());
                                 Set(varFecha2,Blank());
@@ -502,6 +520,7 @@
                             ZIndex: =2
 
                         CheckboxMartes As checkbox:
+                            Default: =varisCheckM
                             DisplayMode: |-
                                 =If(And(varaux >= 2, !CheckboxMartes.Value),
                                     DisplayMode.Disabled,
@@ -509,10 +528,19 @@
                                 )
                             OnCheck: |-
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckM, true);
                                 If(varaux > 1,
                                     Set(vardia,2),
                                     Set(vardia1,2)
                                 );
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
+                                )
                             OnUncheck: |+
                                 =Set(varaux , varaux - 1);
                                 
@@ -523,12 +551,21 @@
                                 
                                 If(varaux = 0,
                                     Set(vardia1,0)
-                                )
+                                );
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
                                 
                             Text: ="Martes"
                             ZIndex: =3
 
                         CheckboxMiercoles As checkbox:
+                            Default: =varisCheckMi
                             DisplayMode: |-
                                 =If(And(varaux >= 2, !CheckboxMiercoles.Value),
                                     DisplayMode.Disabled,
@@ -536,10 +573,20 @@
                                 )
                             OnCheck: |+
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckMi,true);
                                 If(varaux > 1,
                                     Set(vardia,3),
                                     Set(vardia1,3)
                                 );
+                                
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
+                                )
                                 
                             OnUncheck: |-
                                 =Set(varaux , varaux - 1);
@@ -550,11 +597,20 @@
                                 
                                 If(varaux = 0,
                                     Set(vardia1,0)
-                                )
+                                );
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
                             Text: ="Miércoles"
                             ZIndex: =4
 
                         CheckboxJueves As checkbox:
+                            Default: =varisCheckJ
                             DisplayMode: |-
                                 =If(And(varaux >= 2, !CheckboxJueves.Value),
                                     DisplayMode.Disabled,
@@ -562,10 +618,19 @@
                                 )
                             OnCheck: |
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckJ,true);
                                 If(varaux > 1,
                                     Set(vardia,4),
                                     Set(vardia1,4)
                                 );
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
+                                )
                             OnUncheck: |-
                                 =Set(varaux , varaux - 1);
                                 If(varaux <= 1,
@@ -574,11 +639,21 @@
                                 
                                 If(varaux = 0,
                                     Set(vardia1,0)
-                                )
+                                );
+                                
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
                             Text: ="Jueves"
                             ZIndex: =5
 
                         CheckboxViernes As checkbox:
+                            Default: =varisCheckV
                             DisplayMode: |-
                                 =//DisplayMode.Edit
                                 If(And(varaux >= 2, !CheckboxViernes.Value),
@@ -587,9 +662,19 @@
                                 )
                             OnCheck: |-
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckV,true);
                                 If(varaux > 1,
                                     Set(vardia,5),
                                     Set(vardia1,5)
+                                );
+                                
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
                                 )
                             OnSelect: =
                             OnUncheck: |
@@ -599,14 +684,18 @@
                                 );
                                 If(varaux = 0,
                                     Set(vardia1,0)
-                                )
+                                );
+                                
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
                             Text: ="Viernes"
                             ZIndex: =6
-
-                        Button3 As button:
-                            OnSelect: =
-                            Text: ="Button"
-                            ZIndex: =7
 
                     Label1 As label:
                         Text: ="Contador "&varFecha1 & varaux 
@@ -642,7 +731,14 @@
                         ZIndex: =6
 
                     Label6 As label:
-                        Text: ="Dias Seleccionados " 
+                        Text: |-
+                            ="Dias Seleccionados " & //Text(FechaDia1,"dddd dd mmmm yyyy","es-MX")
+                            If(varaux = 1,
+                                Text(FechaDia1,"dddd dd mmmm yyyy","es-MX"),
+                                varaux = 2,
+                                Text(FechaDia1,"dddd dd mmmm yyyy","es-MX") & " y " & Text(FechaDia2,"dddd dd mmmm yyyy","es-MX"),
+                                SinFecha
+                            )
                         Width: =1200
                         ZIndex: =7
 
