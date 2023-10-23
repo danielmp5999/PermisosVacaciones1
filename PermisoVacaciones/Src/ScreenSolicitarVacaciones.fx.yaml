@@ -471,6 +471,9 @@
                                 Set(varisSem, 0);
                                 Set(varFecha1,Blank());
                                 Set(varFecha2,Blank());
+                            
+                                //Codigo
+                            
                                 
                                 "viernes",
                                 Set(varisSem, 0);
