@@ -341,6 +341,7 @@
                         Font: =Font.Verdana
                         FontWeight: =FontWeight.Semibold
                         PaddingTop: =10
+                        Size: =15
                         Text: |-
                             ="Bienvenid@: " & LookUp(HorarioPersonal,Correo = User().Email,Personal.DisplayName)
                         Width: =0
@@ -446,6 +447,7 @@
                     FillPortions: =0
                     Height: =varisHeight
                     LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =30
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
@@ -487,12 +489,17 @@
                         ZIndex: =1
 
                     Label8 As label:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Stretch
                         FontWeight: =FontWeight.Semibold
-                        Text: ="A continuación, selecciona los días en el siguiente intervalo, del "& Text(FechaInicio,"dddd dd mmmm yyyy","es-MX") & " al " & Text(FechaFin,"dddd dd mmmm yyyy","es-MX")
+                        PaddingLeft: =20
+                        Size: =15
+                        Text: ="Selecciona los días en el intervalo del "& Text(FechaInicio,"dddd dd mmmm yyyy","es-MX") & " al " & Text(FechaFin,"dddd dd mmmm yyyy","es-MX")
                         Width: =1200
                         ZIndex: =2
 
                     Container6 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.None
                         FillPortions: =0
                         Height: =50
                         LayoutAlignItems: =LayoutAlignItems.Center
@@ -564,6 +571,7 @@
                                 Set(vardia1,0);
                                 Set(varaux, 0);
                                 
+                            Size: =15
                             Text: ="Martes"
                             ZIndex: =3
 
@@ -609,6 +617,7 @@
                                 Set(vardia,0);
                                 Set(vardia1,0);
                                 Set(varaux, 0);
+                            Size: =15
                             Text: ="Miércoles"
                             ZIndex: =4
 
@@ -652,6 +661,7 @@
                                 Set(vardia,0);
                                 Set(vardia1,0);
                                 Set(varaux, 0);
+                            Size: =15
                             Text: ="Jueves"
                             ZIndex: =5
 
@@ -697,17 +707,21 @@
                                 Set(vardia,0);
                                 Set(vardia1,0);
                                 Set(varaux, 0);
+                            Size: =15
                             Text: ="Viernes"
                             ZIndex: =6
 
                     Label1 As label:
                         Text: ="Contador "&varFecha1 & varaux 
+                        Visible: =false
                         ZIndex: =4
 
                     Label4 As label:
                         Text: |-
                             =//"Fecha 1: "&varFecha2 & vardia1 & " // Fecha 2: "&varFecha2 & vardia
                             "Fecha 1: "& vardia1 & " // Fecha 2: " & vardia
+                        Visible: |
+                            =false
                         Width: =500
                         ZIndex: =5
 
@@ -720,6 +734,8 @@
                                 Text(FechaDia1,"dddd dd mmmm yyyy","es-MX") & " y " & Text(FechaDia2,"dddd dd mmmm yyyy","es-MX"),
                                 SinFecha
                             )
+                        Visible: |
+                            =false
                         Width: =1200
                         ZIndex: =7
 
@@ -1862,6 +1878,9 @@
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplatePadding: =0
                     TemplateSize: =125
+                    Visible: |
+                        =//true
+                        If(GalleryVacaciones.AllItemsCount = 0, false, true)
                     ZIndex: =1
 
                     Title4 As label:
