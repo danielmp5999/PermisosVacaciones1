@@ -245,7 +245,7 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/23/2023 17:32:15",
+  "HeaderLastSavedDateTimeUTC": "10/23/2023 17:32:17",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "3eedfe22-6445-410b-98c2-d5e458cf3ff2": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/13e2e85c73394966900a269a4e92c5b2-c6d7619b7ac3e7b8\"",
