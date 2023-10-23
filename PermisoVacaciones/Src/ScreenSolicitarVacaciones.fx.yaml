@@ -708,28 +708,6 @@
                         Width: =500
                         ZIndex: =5
 
-                    Button2 As button:
-                        OnSelect: |-
-                            =Set(Fecha, ObtenerIntervalodeSemanaSiguiente.Run());
-                            Set(FechaS, Left(Fecha.fechainicio,10));
-                            Set(Anio, Left(FechaS,4));
-                            Set(FechaS, Right(FechaS,5));
-                            Set(Mes, Left(FechaS,2));
-                            Set(Dia, Right(FechaS,2));
-                            Set(FechaInicio, Date(Anio,Mes,Dia));
-                            
-                            //Set(Fecha, ObtenerIntervalodeSemanaSiguiente.Run());
-                            Set(FechaS, Left(Fecha.fechafinal,10));
-                            Set(Anio, Left(FechaS,4));
-                            Set(FechaS, Right(FechaS,5));
-                            Set(Mes, Left(FechaS,2));
-                            Set(Dia, Right(FechaS,2));
-                            Set(FechaFin, Date(Anio,Mes,Dia));
-                            
-                            //Set(FechaInicio, Concatenate(FechaInicio,"/",Left(Fecha.fechainicio,4)));
-                        Text: ="Button"
-                        ZIndex: =6
-
                     Label6 As label:
                         Text: |-
                             ="Dias Seleccionados " & //Text(FechaDia1,"dddd dd mmmm yyyy","es-MX")
