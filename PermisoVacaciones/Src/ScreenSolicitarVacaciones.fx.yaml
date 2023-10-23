@@ -63,6 +63,24 @@
                     );
                     If(Gallery1.Selected.MenuID = 1,
                         Set(varPrin, true);
+                        Set(Fecha, ObtenerIntervalodeSemanaSiguiente.Run());
+                        Set(FechaS, Left(Fecha.fechainicio,10));
+                        Set(Anio, Left(FechaS,4));
+                        Set(FechaS, Right(FechaS,5));
+                        Set(Mes, Left(FechaS,2));
+                        Set(Dia, Right(FechaS,2));
+                        Set(FechaInicio, Date(Anio,Mes,Dia));
+                    
+                        //Set(Fecha, ObtenerIntervalodeSemanaSiguiente.Run());
+                        Set(FechaS, Left(Fecha.fechafinal,10));
+                        Set(Anio, Left(FechaS,4));
+                        Set(FechaS, Right(FechaS,5));
+                        Set(Mes, Left(FechaS,2));
+                        Set(Dia, Right(FechaS,2));
+                        Set(FechaFin, Date(Anio,Mes,Dia));
+                    
+                        //Set(FechaInicio, Concatenate(FechaInicio,"/",Left(Fecha.fechainicio,4)));
+                        
                     );
                     If(Gallery1.Selected.MenuID = 6,
                         Collect(colReg,{
@@ -438,7 +456,7 @@
                         DisplayMode: |-
                             =//DisplayMode.Edit
                             If(And(//Or(varaux >= 1, varisCont = 0),
-                            Or(Text(Now(),"dddd","es-MX")="jueves",Text(Now(),"dddd","es-MX")="viernes")),
+                            Or(Text(Now(),"dddd","es-MX")="lunes",Text(Now(),"dddd","es-MX")="viernes")),
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled
                             )
@@ -449,31 +467,14 @@
                             Set(varisCont ,  1);
                             Set(varisDay, Text(Now(),"dddd","es-MX"));
                             Switch(varisDay,
-                                "jueves",
+                                "lunes",
                                 Set(varisSem, 0);
                                 Set(varFecha1,Blank());
                                 Set(varFecha2,Blank());
-                                If(CheckboxLunes.Value,
-                                    If(varaux = 1,
-                                        Set(varFecha1,DateAdd(Now(),5,TimeUnit.Days));
-                                        //Set(varFecha1,DateAdd(Now(),5,TimeUnit.Days))
-                                        
-                                    );
-                                    
-                                    
-                                    ,
-                                    CheckboxMartes.Value,
-                                    Set(varFecha1,DateAdd(Now(),6,TimeUnit.Days));
-                                    ,
-                                    CheckboxMiercoles.Value,
-                                    Set(varFecha1,DateAdd(Now(),7,TimeUnit.Days));
-                                    ,
-                                    CheckboxJueves.Value,
-                                    Set(varFecha1,DateAdd(Now(),8,TimeUnit.Days));
-                                    ,
-                                    CheckboxViernes.Value,
-                                    Set(varFecha1,DateAdd(Now(),9,TimeUnit.Days));
-                                );
+                            
+                                //Codigo
+                            
+                                
                                 "viernes",
                                 Set(varisSem, 0);
                             )
@@ -487,9 +488,8 @@
 
                     Label8 As label:
                         FontWeight: =FontWeight.Semibold
-                        Text: |-
-                            ="A continuación, selecciona los días:  "
-                        Width: =350
+                        Text: ="A continuación, selecciona los días en el siguiente intervalo, del "& Text(FechaInicio,"dddd dd mmmm yyyy","es-MX") & " al " & Text(FechaFin,"dddd dd mmmm yyyy","es-MX")
+                        Width: =1200
                         ZIndex: =2
 
                     Container6 As groupContainer.horizontalAutoLayoutContainer:
@@ -519,9 +519,11 @@
                                     Set(vardia,0)
                                 )
                             Text: ="Lunes"
+                            Visible: =false
                             ZIndex: =2
 
                         CheckboxMartes As checkbox:
+                            Default: =varisCheckM
                             DisplayMode: |-
                                 =If(And(varaux >= 2, !CheckboxMartes.Value),
                                     DisplayMode.Disabled,
@@ -529,56 +531,132 @@
                                 )
                             OnCheck: |-
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckM, true);
                                 If(varaux > 1,
-                                    Set(vardia,2)
+                                    Set(vardia,2),
+                                    Set(vardia1,2)
+                                );
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
                                 )
-                            OnUncheck: |-
+                            OnUncheck: |+
                                 =Set(varaux , varaux - 1);
+                                
                                 If(varaux <= 1,
-                                    Set(vardia,0)
-                                )
+                                    Set(vardia,0),
+                                    varaux = 1
+                                );
+                                
+                                If(varaux = 0,
+                                    Set(vardia1,0)
+                                );
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
+                                
                             Text: ="Martes"
                             ZIndex: =3
 
                         CheckboxMiercoles As checkbox:
+                            Default: =varisCheckMi
                             DisplayMode: |-
                                 =If(And(varaux >= 2, !CheckboxMiercoles.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
-                            OnCheck: |-
+                            OnCheck: |+
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckMi,true);
                                 If(varaux > 1,
-                                    Set(vardia,3)
+                                    Set(vardia,3),
+                                    Set(vardia1,3)
+                                );
+                                
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
                                 )
+                                
                             OnUncheck: |-
                                 =Set(varaux , varaux - 1);
                                 If(varaux <= 1,
-                                    Set(vardia,0)
-                                )
+                                    Set(vardia,0);
+                                   
+                                );
+                                
+                                If(varaux = 0,
+                                    Set(vardia1,0)
+                                );
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
                             Text: ="Miércoles"
                             ZIndex: =4
 
                         CheckboxJueves As checkbox:
+                            Default: =varisCheckJ
                             DisplayMode: |-
                                 =If(And(varaux >= 2, !CheckboxJueves.Value),
                                     DisplayMode.Disabled,
                                     DisplayMode.Edit
                                 )
-                            OnCheck: |-
+                            OnCheck: |
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckJ,true);
                                 If(varaux > 1,
-                                    Set(vardia,4)
+                                    Set(vardia,4),
+                                    Set(vardia1,4)
+                                );
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
                                 )
                             OnUncheck: |-
                                 =Set(varaux , varaux - 1);
                                 If(varaux <= 1,
                                     Set(vardia,0)
-                                )
+                                );
+                                
+                                If(varaux = 0,
+                                    Set(vardia1,0)
+                                );
+                                
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
                             Text: ="Jueves"
                             ZIndex: =5
 
                         CheckboxViernes As checkbox:
+                            Default: =varisCheckV
                             DisplayMode: |-
                                 =//DisplayMode.Edit
                                 If(And(varaux >= 2, !CheckboxViernes.Value),
@@ -587,25 +665,63 @@
                                 )
                             OnCheck: |-
                                 =Set(varaux , varaux + 1);
+                                Set(varisCheckV,true);
                                 If(varaux > 1,
-                                    Set(vardia,5)
+                                    Set(vardia,5),
+                                    Set(vardia1,5)
+                                );
+                                
+                                
+                                If(varaux = 1,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days)),
+                                    varaux = 2,
+                                    Set(FechaDia1, DateAdd(FechaInicio,vardia1-1,TimeUnit.Days));
+                                    Set(FechaDia2, DateAdd(FechaInicio,vardia-1,TimeUnit.Days)),
+                                    Set(SinFecha, "Sin fecha")
                                 )
                             OnSelect: =
-                            OnUncheck: |-
+                            OnUncheck: |
                                 =Set(varaux , varaux - 1);
                                 If(varaux <= 1,
                                     Set(vardia,0)
-                                )
+                                );
+                                If(varaux = 0,
+                                    Set(vardia1,0)
+                                );
+                                
+                                
+                                Set(varisCheckM, false);
+                                Set(varisCheckMi, false);
+                                Set(varisCheckJ, false);
+                                Set(varisCheckV, false);
+                                Set(vardia,0);
+                                Set(vardia1,0);
+                                Set(varaux, 0);
                             Text: ="Viernes"
                             ZIndex: =6
 
                     Label1 As label:
-                        Text: ="Fecha "&varFecha1 & varaux
+                        Text: ="Contador "&varFecha1 & varaux 
                         ZIndex: =4
 
                     Label4 As label:
-                        Text: ="Fecha "&varFecha2 & vardia
+                        Text: |-
+                            =//"Fecha 1: "&varFecha2 & vardia1 & " // Fecha 2: "&varFecha2 & vardia
+                            "Fecha 1: "& vardia1 & " // Fecha 2: " & vardia
+                        Width: =500
                         ZIndex: =5
+
+                    Label6 As label:
+                        Text: |-
+                            ="Dias Seleccionados " & //Text(FechaDia1,"dddd dd mmmm yyyy","es-MX")
+                            If(varaux = 1,
+                                Text(FechaDia1,"dddd dd mmmm yyyy","es-MX"),
+                                varaux = 2,
+                                Text(FechaDia1,"dddd dd mmmm yyyy","es-MX") & " y " & Text(FechaDia2,"dddd dd mmmm yyyy","es-MX"),
+                                SinFecha
+                            )
+                        Width: =1200
+                        ZIndex: =7
 
             ContainerVacaciones As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.None
@@ -766,9 +882,10 @@
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             DefaultDate: |-
                                 =//Parent.Default
-                                Now()
+                                
                                 //DateAdd(tbxVacaciones_Desde.SelectedDate,TextInput2,TimeUnit.Days)
                                 //varFechaFin
+                                DateAdd(tbxVacaciones_Desde,1,TimeUnit.Days)
                             EndYear: =Text(Today(),"yyyy")
                             Format: |-
                                 =//DateTimeFormat.ShortDate
@@ -1183,37 +1300,94 @@
                         ZIndex: =1
 
                     btnVacacionesAceptar As button:
+                        DisplayMode: |-
+                            =If(!IsBlank(Concat(DataCardValue8.SelectedItems,DisplayName)),
+                                DisplayMode.Edit
+                                ,
+                                DisplayMode.Disabled
+                            )
                         Font: =Font.Verdana
                         OnSelect: |
                             =/*If(SubmitForm(Form1),
                                 Set(varEdit, false);
                                 ResetForm(Form1);
-                                Notify("Se ha guardado", NotificationType.Success,"4000")
+                                
                                 ,   
                                 Notify("No se pudo guardar", NotificationType.Error, "4000")
                             );*/
+                            If(And(tbxVacaciones_Desde.SelectedDate > Now(),tbxVacaciones_Desde.SelectedDate > DateAdd(Now(),7,TimeUnit.Days)),
+                                If(And(tbxVacaciones_Hasta >= tbxVacaciones_Desde,tbxVacaciones_Hasta < DateAdd(Now(),35,TimeUnit.Days)),
+                                    Set(VarIsIDPersonal, LookUp(HorarioPersonal,Correo = User().Email,Title));
+                                    Set(varIsIDVacaciones, 
+                                        Patch(Vacaciones, Defaults(Vacaciones),
+                                            {
+                                                desde:tbxVacaciones_Desde.SelectedDate,
+                                                hasta:tbxVacaciones_Hasta.SelectedDate
+                                                
+                                            },
+                                            Form1.Updates
+                                        ).ID
+                                    );
+                                    Patch(Vacaciones, LookUp(Vacaciones, ID = varIsIDVacaciones),
+                                        {
+                                            IdPersonal: Value(VarIsIDPersonal),
+                                            reemplazo: {
+                                                    'odata.type': "Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                            Claims: "i:0#.f|membership|" & Lower(Concat(DataCardValue8.SelectedItems,Mail)),
+                                                            Department: Concat(DataCardValue8.SelectedItems,Department),
+                                                            DisplayName: Concat(DataCardValue8.SelectedItems,DisplayName),
+                                                            Email: Concat(DataCardValue8.SelectedItems,Mail),
+                                                            JobTitle: Concat(DataCardValue8.SelectedItems,JobTitle),
+                                                            Picture: ""
+                                                }
+                                        }
+                                    );
                             
+                                    VacacionesFlujoV2.Run(Value(varIsIDVacaciones));
+                                    Notify("Solicitud enviada", NotificationType.Success,"4000");
+                                    Set(varEdit, false);
+                                    ResetForm(Form1);
+                                    ,
+                                    Notify("Fecha Final debe ser superior a la fecha final y no debe superar los 30 días de diferencia",NotificationType.Error,4000)
+                                )
+                                ,
+                                Notify("No puede ser menor la fecha inicial al día de hoy y la solicitud es con 7 días de anticipación",NotificationType.Error,4000)
+                            )
+                            /*
                             Set(VarIsIDPersonal, LookUp(HorarioPersonal,Correo = User().Email,Title));
                             Set(varIsIDVacaciones, 
                                 Patch(Vacaciones, Defaults(Vacaciones),
                                     {
                                         desde:tbxVacaciones_Desde.SelectedDate,
-                                        hasta:tbxVacaciones_Hasta.SelectedDate,
-                                        reemplazo:DataCardValue8
+                                        hasta:tbxVacaciones_Hasta.SelectedDate
+                                        
                                     },
                                     Form1.Updates
                                 ).ID
                             );
                             Patch(Vacaciones, LookUp(Vacaciones, ID = varIsIDVacaciones),
                                 {
-                                    IdPersonal: VarIsIDPersonal
+                                    IdPersonal: Value(VarIsIDPersonal),
+                                    reemplazo: {
+                                            'odata.type': "Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                    Claims: "i:0#.f|membership|" & Lower(Concat(DataCardValue8.SelectedItems,Mail)),
+                                                    Department: Concat(DataCardValue8.SelectedItems,Department),
+                                                    DisplayName: Concat(DataCardValue8.SelectedItems,DisplayName),
+                                                    Email: Concat(DataCardValue8.SelectedItems,Mail),
+                                                    JobTitle: Concat(DataCardValue8.SelectedItems,JobTitle),
+                                                    Picture: ""
+                                        }
                                 }
                             );
+                            
+                            VacacionesFlujoV2.Run(Value(varIsIDVacaciones))
+                            */
                         RadiusBottomLeft: =20
                         RadiusBottomRight: =20
                         RadiusTopLeft: =20
                         RadiusTopRight: =20
                         Text: ="Aceptar"
+                        Y: =66
                         ZIndex: =2
 
                 Label10 As label:
