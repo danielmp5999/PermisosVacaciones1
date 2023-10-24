@@ -246,7 +246,7 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/24/2023 19:59:38",
+  "HeaderLastSavedDateTimeUTC": "10/24/2023 20:33:05",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "222b6d94-6b2b-40f1-a356-0b9378211c5c": "\"/providers/microsoft.powerapps/apis/shared_approvals/connections/shared-approvals-0b7fda08-c318-48d2-bebe-7ac904034bb5\"",
