@@ -755,6 +755,21 @@
                 Visible: =If(And(Gallery1.Selected.MenuID = 4,varEdit), true)
                 ZIndex: =3
 
+                labelPautas_1 As label:
+                    Align: =Align.Justify
+                    AlignInContainer: =AlignInContainer.Stretch
+                    AutoHeight: =true
+                    Fill: =RGBA(227, 234, 243, 1)
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    Text: |-
+                        ="Toma en cuenta lo siguiente: 
+                        a. Las vacaciones se deben solicitar con 7 días de anticipación. 
+                        b. Se pueden tomar como máximo 6 días de vacaciones seguidos."
+                    X: =40
+                    Y: =40
+                    ZIndex: =1
+
                 Form1 As form:
                     AlignInContainer: =AlignInContainer.Center
                     BorderStyle: =BorderStyle.None
