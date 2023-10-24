@@ -245,12 +245,16 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/24/2023 00:45:56",
+  "HeaderLastSavedDateTimeUTC": "10/24/2023 15:57:16",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
+    "2b5775ef-a45d-495f-a215-7bf5362d320c": "\"/providers/Microsoft.PowerApps/apis/shared_logicflows/connections/30AB658D423D46EDA39FA47C17D314F9-4518D7A919FDCBB9\"",
     "3eedfe22-6445-410b-98c2-d5e458cf3ff2": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/13e2e85c73394966900a269a4e92c5b2-4518d7a919fdcbb9\"",
     "505ed6d8-930f-45b9-82c0-65c6de1a53af": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/7ee3c44c6a0344aa98b01d66e485848d\"",
+    "574caea8-4194-4901-969c-a57d625ee96c": "\"/providers/microsoft.powerapps/apis/shared_office365/connections/8f4198f88ea94f0496da8a6307f5a456\"",
     "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/87fe989eec49461e9c83211910dadf10-4518d7a919fdcbb9\"",
+    "71f0253e-0aa4-4ae9-92e5-44e4dce58a93": "\"/providers/microsoft.powerapps/apis/shared_approvals/connections/shared-approvals-0b7fda08-c318-48d2-bebe-7ac904034bb5\"",
+    "7206211e-8857-4fb7-a303-c597f1efdb6b": "\"/providers/microsoft.powerapps/apis/shared_flowpush/connections/shared-flowpush-ac40eb92-2187-45e0-87ab-0864f6054169\"",
     "84b99b40-200e-4901-953f-64364e9763b4": "\"/providers/microsoft.powerapps/apis/shared_teams/connections/shared-teams-7715a06e-0393-41db-9e69-096fc49d8d80\"",
     "89ca1aa3-9697-4730-b24b-373083fed2e7": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/58fe6e70-c66f-4210-9140-987899f644ec\"",
     "98a4ad57-d925-4491-aacb-4f4ec9dad3ef": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/4144bb23-e12f-4b78-a179-839ffe405d5f\"",
@@ -263,8 +267,8 @@
     "LogoPrecitool": "0002.png"
   },
   "LocalResourceRootPaths": {
-    "LOGOP": "https://docserverpwaprodeus.blob.core.windows.net/b84cd349-7c42-4f92-91d1-fcc25abde212-1/resource/Assets0Images00001.PNG?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-24T00%3A43%3A23Z&ske=2023-10-25T00%3A58%3A23Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-25T00%3A58%3A23Z&sr=b&sp=r&sig=dldKKF4ZuYg0vsMO9hV0F9q%2BdBF1jQu2l6%2Bd31C0n0M%3D",
-    "LogoPrecitool": "https://docserverpwaprodeus.blob.core.windows.net/b84cd349-7c42-4f92-91d1-fcc25abde212-1/resource/Assets0Images00002.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-24T00%3A43%3A23Z&ske=2023-10-25T00%3A58%3A23Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-25T00%3A58%3A23Z&sr=b&sp=r&sig=OSpJRndcB9Yx2QVnbHq8xeFQkud3axbuMS%2F7XQCuBZA%3D"
+    "LOGOP": "https://docserverpwaprodeus.blob.core.windows.net/e886298c-5f30-4e34-8151-3273bf1ab731-1/resource/Assets0Images00001.PNG?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-24T15%3A54%3A49Z&ske=2023-10-25T16%3A09%3A49Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-25T16%3A09%3A49Z&sr=b&sp=r&sig=1RfEmnB%2BznovIdrEsvWnQEVSTlC42RuPJLmzDJwtkKo%3D",
+    "LogoPrecitool": "https://docserverpwaprodeus.blob.core.windows.net/e886298c-5f30-4e34-8151-3273bf1ab731-1/resource/Assets0Images00002.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-24T15%3A54%3A49Z&ske=2023-10-25T16%3A09%3A49Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-25T16%3A09%3A49Z&sr=b&sp=r&sig=iVXPhGNNiqi5dd1N5vEKSC3B3IWZV%2FRb0Nxkz92FZWE%3D"
   },
   "OldLogoFileName": "logo.jpg",
   "OrderComponentMetadata": {
@@ -275,21 +279,22 @@
   },
   "OrderDataSource": {
     "ActualizacionSalidaF": 0,
-    "colReg": 14,
-    "colSideMenu": 15,
-    "ComboBoxSample": 6,
-    "CustomGallerySample": 7,
-    "Descansos Oficiales": 8,
-    "DropDownSample": 9,
+    "colReg": 15,
+    "colSideMenu": 16,
+    "ComboBoxSample": 7,
+    "CustomGallerySample": 8,
+    "Descansos Oficiales": 9,
+    "DropDownSample": 10,
     "EntradaComida": 1,
-    "EntradasSalidas": 10,
-    "HorarioPersonal": 11,
+    "EntradasSalidas": 11,
+    "HorarioPersonal": 12,
     "ObtenerIntervalodeSemanaSiguiente": 5,
     "Office365Users": 2,
-    "Permisos": 12,
+    "Permisos": 13,
     "RegistroE": 3,
     "SalidaComida": 4,
-    "Vacaciones": 13
+    "Vacaciones": 14,
+    "VacacionesFlujoV3": 6
   },
   "OrderGroupControls": {},
   "OrderPcfTemplate": {},
@@ -798,7 +803,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 1.3076256,
+    "AnalysisLoadTime": 1.4753297,
     "ControlCount": {
       "213efad290a14de0b8d7635d8d300c38": 1,
       "button": 12,
@@ -821,7 +826,7 @@
       "text": 4,
       "typedDataCard": 18
     },
-    "DeserializationLoadTime": 2.4226914
+    "DeserializationLoadTime": 3.3131763
   },
   "WasLocalDatabaseReferencesEmpty": true
 }

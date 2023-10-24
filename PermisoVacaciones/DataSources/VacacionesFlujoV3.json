@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "30ab658d-423d-46ed-a39f-a47c17d314f9",
+    "Name": "VacacionesFlujoV3",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": null
+  }
+]

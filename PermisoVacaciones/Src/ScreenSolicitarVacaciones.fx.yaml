@@ -1359,7 +1359,7 @@
                                         }
                                     );
                             
-                                    'Copyof-VacacionesFlujoV2'.Run(Value(varIsIDVacaciones));
+                                    'VacacionesFlujoV3'.Run(Value(varIsIDVacaciones));
                                     Notify("Solicitud enviada", NotificationType.Success,"4000");
                                     Set(varEdit, false);
                                     ResetForm(Form1);
