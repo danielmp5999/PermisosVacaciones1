@@ -245,17 +245,21 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/23/2023 23:31:21",
+  "HeaderLastSavedDateTimeUTC": "10/24/2023 00:42:11",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
-    "3eedfe22-6445-410b-98c2-d5e458cf3ff2": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/13e2e85c73394966900a269a4e92c5b2-4518d7a919fdcbb9\"",
-    "505ed6d8-930f-45b9-82c0-65c6de1a53af": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/7ee3c44c6a0344aa98b01d66e485848d\"",
-    "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/87fe989eec49461e9c83211910dadf10-4518d7a919fdcbb9\"",
-    "84b99b40-200e-4901-953f-64364e9763b4": "\"/providers/microsoft.powerapps/apis/shared_teams/connections/shared-teams-7715a06e-0393-41db-9e69-096fc49d8d80\"",
-    "89ca1aa3-9697-4730-b24b-373083fed2e7": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/58fe6e70-c66f-4210-9140-987899f644ec\"",
-    "98a4ad57-d925-4491-aacb-4f4ec9dad3ef": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/4144bb23-e12f-4b78-a179-839ffe405d5f\"",
-    "d5952d58-afb0-45dc-bf55-f4f43970a50d": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/52dbe5114ee54e8886c1d624a4a0b37b\"",
-    "ee6d70fa-beac-445f-8c86-2ee737bdb26f": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/fde15874-f2c9-477d-9a62-584a7f32af86\""
+    "306123f2-a372-4537-94fd-2fbf2694c2fd": "\"/providers/microsoft.powerapps/apis/shared_office365/connections/shared-office365-14827564-2ba2-472e-bacc-e8f55587396d\"",
+    "3eedfe22-6445-410b-98c2-d5e458cf3ff2": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/13e2e85c73394966900a269a4e92c5b2-c6d7619b7ac3e7b8\"",
+    "505ed6d8-930f-45b9-82c0-65c6de1a53af": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/9ece3a11897a49a688aaa90fe45f5a6a\"",
+    "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/c0c96da5f2574fd3a6b46aa1773f5171\"",
+    "84b99b40-200e-4901-953f-64364e9763b4": "\"/providers/microsoft.powerapps/apis/shared_teams/connections/shared-teams-489de138-decf-4f69-a932-568db6a22cfa\"",
+    "89ca1aa3-9697-4730-b24b-373083fed2e7": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/9444b1985a514466876bd8202fe00f6b\"",
+    "98a4ad57-d925-4491-aacb-4f4ec9dad3ef": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/4d2e18d688b741c58ad8c0cb71f58ef2\"",
+    "a395ede0-6391-4495-a87a-bd114eced297": "\"/providers/Microsoft.PowerApps/apis/shared_logicflows/connections/24547A5A997A4BEA904DE587F5A14C10-C6D7619B7AC3E7B8\"",
+    "d36a5814-cade-4ac3-a53c-ee65e21c529e": "\"/providers/microsoft.powerapps/apis/shared_flowpush/connections/shared-flowpush-2dd4803d-1a3d-42a1-ac82-15c6cbf1f00b\"",
+    "d5952d58-afb0-45dc-bf55-f4f43970a50d": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/602c0860c99744608854135f29599242\"",
+    "ed2b715f-9ad9-4765-95c5-c882df73e552": "\"/providers/microsoft.powerapps/apis/shared_approvals/connections/shared-approvals-8fe3736d-0482-4c5a-be8c-3dff28065b73\"",
+    "ee6d70fa-beac-445f-8c86-2ee737bdb26f": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/655a5f60b5234e05b4f688e836c9b6aa\""
   },
   "LocalDatabaseReferencesAsEmpty": false,
   "LocalResourceFileNames": {
@@ -263,8 +267,8 @@
     "LogoPrecitool": "0002.png"
   },
   "LocalResourceRootPaths": {
-    "LOGOP": "https://docserverpwaprodwus.blob.core.windows.net/4016b08a-1bf5-4c7e-acc5-26bb1d5fea74-1/resource/Assets0Images00001.PNG?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-23T23%3A31%3A07Z&ske=2023-10-24T23%3A46%3A07Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-24T23%3A46%3A07Z&sr=b&sp=r&sig=CE2dQm239vHED9%2BHxtDx4WoxQ16RQ3wJZYJu5qk4qCo%3D",
-    "LogoPrecitool": "https://docserverpwaprodwus.blob.core.windows.net/4016b08a-1bf5-4c7e-acc5-26bb1d5fea74-1/resource/Assets0Images00002.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-23T23%3A31%3A07Z&ske=2023-10-24T23%3A46%3A07Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-24T23%3A46%3A07Z&sr=b&sp=r&sig=UB3hgk0i52QaR83KuGSIJFG9MitF%2Bu2BmNNIm7TSjOY%3D"
+    "LOGOP": "https://docserverpwaprodeus.blob.core.windows.net/fb9d9ffa-a03a-429b-8c84-94841dd10194-1/resource/Assets0Images00001.PNG?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-24T00%3A06%3A54Z&ske=2023-10-25T00%3A21%3A54Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-25T00%3A21%3A54Z&sr=b&sp=r&sig=1WjJwXz7CXETzN3OZBG4V0A24pjIJbTtmrO6L6G4pQM%3D",
+    "LogoPrecitool": "https://docserverpwaprodeus.blob.core.windows.net/fb9d9ffa-a03a-429b-8c84-94841dd10194-1/resource/Assets0Images00002.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2023-10-24T00%3A06%3A54Z&ske=2023-10-25T00%3A21%3A54Z&sks=b&skv=2021-12-02&sv=2021-12-02&spr=https&se=2023-10-25T00%3A21%3A54Z&sr=b&sp=r&sig=2jbiS%2F6m0suPDWT2IUzKbYlPjs6yA5YKfPTWJSxC2T0%3D"
   },
   "OldLogoFileName": "logo.jpg",
   "OrderComponentMetadata": {
@@ -275,21 +279,22 @@
   },
   "OrderDataSource": {
     "ActualizacionSalidaF": 0,
-    "colReg": 14,
-    "colSideMenu": 15,
-    "ComboBoxSample": 6,
-    "CustomGallerySample": 7,
-    "Descansos Oficiales": 8,
-    "DropDownSample": 9,
+    "colReg": 15,
+    "colSideMenu": 16,
+    "ComboBoxSample": 7,
+    "Copyof-VacacionesFlujoV2": 6,
+    "CustomGallerySample": 8,
+    "Descansos Oficiales": 9,
+    "DropDownSample": 10,
     "EntradaComida": 1,
-    "EntradasSalidas": 10,
-    "HorarioPersonal": 11,
+    "EntradasSalidas": 11,
+    "HorarioPersonal": 12,
     "ObtenerIntervalodeSemanaSiguiente": 5,
     "Office365Users": 2,
-    "Permisos": 12,
+    "Permisos": 13,
     "RegistroE": 3,
     "SalidaComida": 4,
-    "Vacaciones": 13
+    "Vacaciones": 14
   },
   "OrderGroupControls": {},
   "OrderPcfTemplate": {},
@@ -798,7 +803,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 1.2535246,
+    "AnalysisLoadTime": 1.2986436,
     "ControlCount": {
       "213efad290a14de0b8d7635d8d300c38": 1,
       "button": 12,
@@ -821,7 +826,7 @@
       "text": 4,
       "typedDataCard": 18
     },
-    "DeserializationLoadTime": 2.3916213
+    "DeserializationLoadTime": 3.8601261
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
