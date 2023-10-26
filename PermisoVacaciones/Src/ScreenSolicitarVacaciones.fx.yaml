@@ -2030,6 +2030,9 @@
 
                     Subtitle3_1 As label:
                         Align: =Align.Center
+                        Color: |-
+                            =RGBA(0, 0, 0, 1)
+                            //If(Text(ThisItem.estatusSolicitud.Value) = "Rechazado"; RGBA(0, 0, 0, 1); RGBA(0, 0, 0, 1))
                         DisabledColor: =
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Verdana
@@ -2041,7 +2044,9 @@
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =13
-                        Text: =ThisItem.estatusSolicitud.Value
+                        Text: |+
+                            =ThisItem.estatusSolicitud.Value
+                            
                         VerticalAlign: =VerticalAlign.Top
                         Width: =127
                         X: =714
