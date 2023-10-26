@@ -1,17 +1,34 @@
 {
-  "18d0318d-5ad7-48ee-87c3-0f7086c77826": {
+  "00470ac0-5807-498b-9d1f-01f71ff19f81": {
     "connectionRef": {
-      "displayName": "Notifications",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3440/flowpush/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_flowpush"
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "30ab658d-423d-46ed-a39f-a47c17d314f9"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "30ab658d-423d-46ed-a39f-a47c17d314f9"
+        }
+      }
     },
     "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "95211a70-ba54-4f10-a77a-61c7ad4b3590"
+    "dataSources": [
+      "VacacionesFlujoV3"
     ],
-    "id": "18d0318d-5ad7-48ee-87c3-0f7086c77826"
+    "dependencies": {
+      "shared_approvals": "d7b8f3ba-a7ec-4a76-84d3-c532d25dcf69",
+      "shared_flowpush": "fc0d6449-79b1-4dd7-beab-c51dfe8d8291",
+      "shared_office365": "b367a146-1b3e-4f60-a931-c987588eee06",
+      "shared_sharepointonline_1": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+    },
+    "dependents": [],
+    "id": "00470ac0-5807-498b-9d1f-01f71ff19f81"
   },
   "3eedfe22-6445-410b-98c2-d5e458cf3ff2": {
     "connectionRef": {
@@ -107,20 +124,6 @@
     "dependents": [],
     "id": "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88"
   },
-  "75ac984f-ee83-44dc-b16b-3cafe3d9be4c": {
-    "connectionRef": {
-      "displayName": "Office 365 Outlook",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3403/office365/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "95211a70-ba54-4f10-a77a-61c7ad4b3590"
-    ],
-    "id": "75ac984f-ee83-44dc-b16b-3cafe3d9be4c"
-  },
   "84b99b40-200e-4901-953f-64364e9763b4": {
     "appActions": [],
     "connectionRef": {
@@ -196,37 +199,6 @@
     "dependents": [],
     "id": "89ca1aa3-9697-4730-b24b-373083fed2e7"
   },
-  "95211a70-ba54-4f10-a77a-61c7ad4b3590": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "30ab658d-423d-46ed-a39f-a47c17d314f9"
-        }
-      },
-      "parameterHintsV2": {
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "30ab658d-423d-46ed-a39f-a47c17d314f9"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "VacacionesFlujoV3"
-    ],
-    "dependencies": {
-      "shared_approvals": "f2bc4d5b-27b9-4670-9a8e-ee6a2031409b",
-      "shared_flowpush": "18d0318d-5ad7-48ee-87c3-0f7086c77826",
-      "shared_office365": "75ac984f-ee83-44dc-b16b-3cafe3d9be4c",
-      "shared_sharepointonline_1": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
-    },
-    "dependents": [],
-    "id": "95211a70-ba54-4f10-a77a-61c7ad4b3590"
-  },
   "98a4ad57-d925-4491-aacb-4f4ec9dad3ef": {
     "appActions": [],
     "connectionRef": {
@@ -281,6 +253,20 @@
     "dependents": [],
     "id": "98a4ad57-d925-4491-aacb-4f4ec9dad3ef"
   },
+  "b367a146-1b3e-4f60-a931-c987588eee06": {
+    "connectionRef": {
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3403/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "00470ac0-5807-498b-9d1f-01f71ff19f81"
+    ],
+    "id": "b367a146-1b3e-4f60-a931-c987588eee06"
+  },
   "d5952d58-afb0-45dc-bf55-f4f43970a50d": {
     "appActions": [
       "providers/PowerPlatform.Governance/Operations/Read",
@@ -328,9 +314,23 @@
       "89ca1aa3-9697-4730-b24b-373083fed2e7",
       "ee6d70fa-beac-445f-8c86-2ee737bdb26f",
       "6b6a5a9d-ef87-4e1a-aa1f-280e4db32f88",
-      "95211a70-ba54-4f10-a77a-61c7ad4b3590"
+      "00470ac0-5807-498b-9d1f-01f71ff19f81"
     ],
     "id": "d5952d58-afb0-45dc-bf55-f4f43970a50d"
+  },
+  "d7b8f3ba-a7ec-4a76-84d3-c532d25dcf69": {
+    "connectionRef": {
+      "displayName": "Approvals",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1650/1.0.1650.3374/approvals/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_approvals"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "00470ac0-5807-498b-9d1f-01f71ff19f81"
+    ],
+    "id": "d7b8f3ba-a7ec-4a76-84d3-c532d25dcf69"
   },
   "ee6d70fa-beac-445f-8c86-2ee737bdb26f": {
     "appActions": [],
@@ -386,18 +386,18 @@
     "dependents": [],
     "id": "ee6d70fa-beac-445f-8c86-2ee737bdb26f"
   },
-  "f2bc4d5b-27b9-4670-9a8e-ee6a2031409b": {
+  "fc0d6449-79b1-4dd7-beab-c51dfe8d8291": {
     "connectionRef": {
-      "displayName": "Approvals",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1650/1.0.1650.3374/approvals/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_approvals"
+      "displayName": "Notifications",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1657/1.0.1657.3440/flowpush/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_flowpush"
     },
     "datasets": {},
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "95211a70-ba54-4f10-a77a-61c7ad4b3590"
+      "00470ac0-5807-498b-9d1f-01f71ff19f81"
     ],
-    "id": "f2bc4d5b-27b9-4670-9a8e-ee6a2031409b"
+    "id": "fc0d6449-79b1-4dd7-beab-c51dfe8d8291"
   }
 }
