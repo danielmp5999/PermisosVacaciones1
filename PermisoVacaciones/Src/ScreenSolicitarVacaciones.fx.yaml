@@ -748,6 +748,8 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =10
                 RadiusBottomLeft: =10
                 RadiusBottomRight: =10
@@ -761,6 +763,8 @@
                     AlignInContainer: =AlignInContainer.Stretch
                     AutoHeight: =true
                     Fill: =RGBA(227, 234, 243, 1)
+                    Font: =Font.Verdana
+                    PaddingBottom: =15
                     PaddingLeft: =20
                     PaddingRight: =20
                     Text: |-
@@ -796,7 +800,7 @@
                             Height: =34
                             PaddingLeft: =40
                             Text: |-
-                                ="Jefe Directo:"
+                                ="Responsable:"
                             Width: =185
                             Y: =15
                             ZIndex: =1
@@ -1439,6 +1443,8 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =10
                 RadiusBottomLeft: =10
                 RadiusBottomRight: =10
@@ -1452,9 +1458,10 @@
                     AlignInContainer: =AlignInContainer.Stretch
                     AutoHeight: =true
                     Fill: =RGBA(227, 234, 243, 1)
+                    Font: =Font.Verdana
+                    PaddingBottom: =15
                     PaddingLeft: =20
                     PaddingRight: =20
-                    Size: =14
                     Text: |-
                         ="Toma en cuenta lo siguiente: 
                         a. Los permisos solo serán de 4 horas como máximo. 
@@ -1492,7 +1499,8 @@
 
                         DataCardKey21 As label:
                             AutoHeight: =true
-                            FontWeight: =FontWeight.Semibold
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
                             Height: =34
                             PaddingLeft: =0
                             Size: =14
@@ -1557,7 +1565,8 @@
 
                         DataCardKey1 As label:
                             AutoHeight: =true
-                            FontWeight: =FontWeight.Semibold
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
                             Height: =34
                             Size: =14
                             Text: =Parent.DisplayName
@@ -1642,8 +1651,10 @@
                     separador1 As label:
                         Align: =Align.Center
                         AutoHeight: =true
+                        Font: =Font.Verdana
                         FontWeight: =FontWeight.Bold
                         PaddingRight: =0
+                        Size: =14
                         Text: |-
                             =":"
                         Width: =50
@@ -1679,8 +1690,11 @@
                             Align: =Align.Justify
                             AlignInContainer: =AlignInContainer.Stretch
                             AutoHeight: =true
-                            FontWeight: =FontWeight.Semibold
+                            Color: =RGBA(0, 18, 107, 1)
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
                             PaddingRight: =0
+                            Size: =14
                             Text: ="a"
                             Width: =50
                             X: =40
@@ -1719,8 +1733,10 @@
                             Align: =Align.Center
                             AlignInContainer: =AlignInContainer.Stretch
                             AutoHeight: =true
+                            Font: =Font.Verdana
                             FontWeight: =FontWeight.Bold
                             PaddingRight: =0
+                            Size: =14
                             Text: |-
                                 =":"
                             Width: =50
@@ -1741,6 +1757,11 @@
                             ZIndex: =4
 
                     Label3 As label:
+                        Color: |
+                            =RGBA(0, 18, 107, 1)
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: |-
                             =/*If(DropdownDeH.Selected.Value = 9,
                                 "text"
@@ -1887,6 +1908,8 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =10
                 RadiusBottomLeft: =10
                 RadiusBottomRight: =10
@@ -3136,22 +3159,32 @@
 
                     Label13 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Height: =50
+                        Size: =14
                         Text: ="Hora de entrada"
+                        Width: =200
                         ZIndex: =1
 
                     Label14 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: ="Salida a comer"
                         ZIndex: =2
 
                     Label14_1 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: ="Regreso de comer"
-                        Width: =170
+                        Width: =200
                         ZIndex: =3
 
                     Label14_2 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: ="Hora de salida"
                         ZIndex: =4
 
