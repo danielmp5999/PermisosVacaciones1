@@ -2030,26 +2030,24 @@
 
                     Subtitle3_1 As label:
                         Align: =Align.Center
-                        Color: |-
-                            =RGBA(0, 0, 0, 1)
-                            //If(Text(ThisItem.estatusSolicitud.Value) = "Rechazado"; RGBA(0, 0, 0, 1); RGBA(0, 0, 0, 1))
+                        Color: =If(ThisItem.estatusSolicitud.Value = "Rechazado", RGBA(225, 46, 70, 0.99), If(ThisItem.estatusSolicitud.Value = "Pendiente", RGBA(44, 103, 185, 1),If(ThisItem.estatusSolicitud.Value = "Aprobado", RGBA(26, 156, 30, 0.99))))
                         DisabledColor: =
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Verdana
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Normal)
                         Height: =22
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =13
+                        Size: =14
                         Text: |+
                             =ThisItem.estatusSolicitud.Value
                             
                         VerticalAlign: =VerticalAlign.Top
                         Width: =127
-                        X: =714
+                        X: =719
                         Y: =51
                         ZIndex: =12
 
