@@ -797,6 +797,7 @@
                         ZIndex: =1
 
                         Label7 As label:
+                            FontWeight: =FontWeight.Semibold
                             Height: =34
                             PaddingLeft: =40
                             Text: |-
@@ -816,6 +817,7 @@
                                 //Office365Users.Manager(varManager).DisplayName //A quien reporta por cada que se incia la app (variable)
                                 //Concat(DataCardValue8.SelectedItems,DisplayName) //Obtener el texto de una card
                             DisplayMode: =DisplayMode.View
+                            FontWeight: =FontWeight.Semibold
                             PaddingLeft: =40
                             Width: =458
                             Y: =49
@@ -3138,6 +3140,8 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 Visible: =If(And(Gallery1.Selected.MenuID = 6,varEdit), true)
                 X: =40
                 Y: =40
