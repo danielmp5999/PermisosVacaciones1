@@ -411,6 +411,7 @@
                         Fill: =RGBA(214, 223, 238, 1)
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =30
                         LayoutJustifyContent: =LayoutJustifyContent.Center
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
@@ -848,7 +849,7 @@
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             DefaultDate: |-
                                 =//Parent.Default
-                                DateAdd(Now(),5,TimeUnit.Days)
+                                DateAdd(Now(),7,TimeUnit.Days)
                             DisplayMode: =Parent.DisplayMode
                             EndYear: =Year(Today())+100
                             Format: |-
@@ -2033,7 +2034,7 @@
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Verdana
                         FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =21
+                        Height: =22
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
@@ -2042,9 +2043,9 @@
                         Size: =13
                         Text: =ThisItem.estatusSolicitud.Value
                         VerticalAlign: =VerticalAlign.Top
-                        Width: =102
+                        Width: =127
                         X: =714
-                        Y: =52
+                        Y: =51
                         ZIndex: =12
 
             ContainerVacacionesDetalles As groupContainer.verticalAutoLayoutContainer:
