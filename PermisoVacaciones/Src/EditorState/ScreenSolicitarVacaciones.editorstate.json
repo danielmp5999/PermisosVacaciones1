@@ -8950,7 +8950,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerES",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9533,7 +9533,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerHome",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12549,7 +12549,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerPermisos",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12821,7 +12821,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerPermisosRegistro",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13107,7 +13107,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerVacaciones",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13401,7 +13401,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerVacacionesDetalles",
-      "ParentIndex": 1,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13678,7 +13678,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerVacacionesRegistro",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35355,7 +35355,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon3",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -37389,7 +37389,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconRefreshHorarioPersonal",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -37639,7 +37639,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconRefreshPermisos",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
