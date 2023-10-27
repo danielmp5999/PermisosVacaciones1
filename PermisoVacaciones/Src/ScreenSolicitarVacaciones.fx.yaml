@@ -2573,7 +2573,6 @@
                     LayoutMinWidth: =200
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    PaddingRight: =20
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
@@ -3433,4 +3432,23 @@
                         X: =655
                         Y: =51
                         ZIndex: =14
+
+    "Map2 As 'Map (preview)'.pcfdataset":
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Clustering: =true
+        Compass: =true
+        CurrentLocation: =true
+        CurrentLocationLatitude: =Location.Latitude
+        CurrentLocationLongitude: =Location.Longitude
+        DefaultLocation: =false
+        DisplayMode: =DisplayMode.Edit
+        Height: =572
+        MapStyle: ='Map.MapStyle'.GrayscaleDark
+        PinColor: =RGBA(29, 114, 169, 1)
+        Pitch: =true
+        SatelliteView: =false
+        Width: =698
+        X: =461
+        Y: =98
+        ZIndex: =3
 

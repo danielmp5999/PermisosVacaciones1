@@ -54,6 +54,20 @@
     "dependents": [],
     "id": "00470ac0-5807-498b-9d1f-01f71ff19f81"
   },
+  "3cf6c45f-9cff-4e2e-9804-b63591df38e0": {
+    "connectionRef": {
+      "displayName": "Spatial Services",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1658/1.0.1658.3454/microsoftspatialservices/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_microsoftspatialservices"
+    },
+    "datasets": {},
+    "dataSources": [
+      "SpatialServices"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "3cf6c45f-9cff-4e2e-9804-b63591df38e0"
+  },
   "3eedfe22-6445-410b-98c2-d5e458cf3ff2": {
     "connectionRef": {
       "displayName": "Logic flows",
