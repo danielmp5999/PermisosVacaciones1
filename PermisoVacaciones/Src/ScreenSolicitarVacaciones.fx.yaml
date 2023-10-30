@@ -411,6 +411,7 @@
                         Fill: =RGBA(214, 223, 238, 1)
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =30
                         LayoutJustifyContent: =LayoutJustifyContent.Center
                         LayoutMinHeight: =100
                         LayoutMinWidth: =250
@@ -747,6 +748,8 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =10
                 RadiusBottomLeft: =10
                 RadiusBottomRight: =10
@@ -754,6 +757,23 @@
                 RadiusTopRight: =10
                 Visible: =If(And(Gallery1.Selected.MenuID = 4,varEdit), true)
                 ZIndex: =3
+
+                labelPautas_1 As label:
+                    Align: =Align.Justify
+                    AlignInContainer: =AlignInContainer.Stretch
+                    AutoHeight: =true
+                    Fill: =RGBA(227, 234, 243, 1)
+                    Font: =Font.Verdana
+                    PaddingBottom: =15
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    Text: |-
+                        ="Toma en cuenta lo siguiente: 
+                        a. Las vacaciones se deben solicitar con 7 días de anticipación. 
+                        b. Se pueden tomar como máximo 6 días de vacaciones seguidos."
+                    X: =40
+                    Y: =40
+                    ZIndex: =1
 
                 Form1 As form:
                     AlignInContainer: =AlignInContainer.Center
@@ -771,18 +791,19 @@
                         DisplayMode: =DisplayMode.Edit
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =100
-                        Width: =264
-                        X: =2
+                        Width: =462
+                        X: =20
                         Y: =237
                         ZIndex: =1
 
                         Label7 As label:
+                            FontWeight: =FontWeight.Semibold
                             Height: =34
+                            PaddingLeft: =40
                             Text: |-
-                                ="Jefe Directo:"
-                            Width: =204
-                            X: =30
-                            Y: =5
+                                ="Responsable:"
+                            Width: =185
+                            Y: =15
                             ZIndex: =1
 
                         TextInput1 As text:
@@ -796,10 +817,10 @@
                                 //Office365Users.Manager(varManager).DisplayName //A quien reporta por cada que se incia la app (variable)
                                 //Concat(DataCardValue8.SelectedItems,DisplayName) //Obtener el texto de una card
                             DisplayMode: =DisplayMode.View
-                            PaddingLeft: =0
-                            Width: =290
-                            X: =30
-                            Y: =46
+                            FontWeight: =FontWeight.Semibold
+                            PaddingLeft: =40
+                            Width: =458
+                            Y: =49
                             ZIndex: =2
 
                     desde_DataCard1 As typedDataCard.dateEditCard:
@@ -820,8 +841,10 @@
                         DataCardKey2 As label:
                             AutoHeight: =true
                             Font: =Font.Verdana
+                            FontWeight: =FontWeight.Semibold
                             Height: =34
                             PaddingLeft: =0
+                            Size: =14
                             Text: ="Desde"
                             Width: =Parent.Width - 60
                             Wrap: =false
@@ -833,7 +856,7 @@
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             DefaultDate: |-
                                 =//Parent.Default
-                                DateAdd(Now(),5,TimeUnit.Days)
+                                DateAdd(Now(),7,TimeUnit.Days)
                             DisplayMode: =Parent.DisplayMode
                             EndYear: =Year(Today())+100
                             Format: |-
@@ -885,8 +908,10 @@
                         DataCardKey3 As label:
                             AutoHeight: =true
                             Font: =Font.Verdana
+                            FontWeight: =FontWeight.Semibold
                             Height: =34
                             PaddingLeft: =0
+                            Size: =14
                             Text: ="Hasta"
                             Width: =Parent.Width - 60
                             Wrap: =false
@@ -1012,10 +1037,10 @@
                         DisplayMode: =Parent.DisplayMode
                         DisplayName: =DataSourceInfo([@Vacaciones],DataSourceInfo.DisplayName,"reemplazo")
                         Fill: =RGBA(0, 0, 0, 0)
-                        Height: =50
+                        Height: =120
                         Required: =false
                         Update: =DataCardValue8.Selected
-                        Width: =350
+                        Width: =462
                         WidthFit: =false
                         X: =1
                         Y: =1
@@ -1024,10 +1049,11 @@
                         DataCardKey8 As label:
                             AutoHeight: =true
                             Font: =Font.Verdana
-                            Height: =34
+                            FontWeight: =FontWeight.Semibold
+                            Height: =31
                             PaddingLeft: =0
                             Text: ="Persona que podría cubrir puesto"
-                            Width: =320
+                            Width: =341
                             Wrap: =false
                             X: =30
                             Y: =10
@@ -1091,7 +1117,7 @@
                         MaxLength: =DataSourceInfo([@Vacaciones], DataSourceInfo.MaxLength, "comentarios")
                         Required: =false
                         Update: =DataCardValue5.Text
-                        Width: =396
+                        Width: =462
                         X: =2
                         Y: =1
                         ZIndex: =2
@@ -1099,13 +1125,14 @@
                         DataCardKey5 As label:
                             AutoHeight: =true
                             Font: =Font.Verdana
+                            FontWeight: =FontWeight.Semibold
                             Height: =34
                             PaddingLeft: =0
+                            Size: =14
                             Text: ="Comentarios"
                             Width: =Parent.Width - 60
                             Wrap: =false
                             X: =30
-                            Y: =10
                             ZIndex: =1
 
                         DataCardValue5 As text:
@@ -1124,9 +1151,9 @@
                             RadiusTopRight: =0
                             Size: =12
                             Tooltip: =Parent.DisplayName
-                            Width: =298
+                            Width: =402
                             X: =30
-                            Y: =41
+                            Y: =43
                             ZIndex: =2
 
                         ErrorMessage5 As label:
@@ -1418,6 +1445,8 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =10
                 RadiusBottomLeft: =10
                 RadiusBottomRight: =10
@@ -1431,6 +1460,8 @@
                     AlignInContainer: =AlignInContainer.Stretch
                     AutoHeight: =true
                     Fill: =RGBA(227, 234, 243, 1)
+                    Font: =Font.Verdana
+                    PaddingBottom: =15
                     PaddingLeft: =20
                     PaddingRight: =20
                     Text: |-
@@ -1470,8 +1501,11 @@
 
                         DataCardKey21 As label:
                             AutoHeight: =true
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
                             Height: =34
                             PaddingLeft: =0
+                            Size: =14
                             Text: =Parent.DisplayName
                             Width: =Parent.Width - 60
                             Wrap: =false
@@ -1533,7 +1567,10 @@
 
                         DataCardKey1 As label:
                             AutoHeight: =true
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
                             Height: =34
+                            Size: =14
                             Text: =Parent.DisplayName
                             Width: =Parent.Width - 60
                             Wrap: =false
@@ -1616,8 +1653,10 @@
                     separador1 As label:
                         Align: =Align.Center
                         AutoHeight: =true
+                        Font: =Font.Verdana
                         FontWeight: =FontWeight.Bold
                         PaddingRight: =0
+                        Size: =14
                         Text: |-
                             =":"
                         Width: =50
@@ -1653,8 +1692,11 @@
                             Align: =Align.Justify
                             AlignInContainer: =AlignInContainer.Stretch
                             AutoHeight: =true
-                            FontWeight: =FontWeight.Semibold
+                            Color: =RGBA(0, 18, 107, 1)
+                            Font: =Font.Verdana
+                            FontWeight: =FontWeight.Bold
                             PaddingRight: =0
+                            Size: =14
                             Text: ="a"
                             Width: =50
                             X: =40
@@ -1693,8 +1735,10 @@
                             Align: =Align.Center
                             AlignInContainer: =AlignInContainer.Stretch
                             AutoHeight: =true
+                            Font: =Font.Verdana
                             FontWeight: =FontWeight.Bold
                             PaddingRight: =0
+                            Size: =14
                             Text: |-
                                 =":"
                             Width: =50
@@ -1715,6 +1759,11 @@
                             ZIndex: =4
 
                     Label3 As label:
+                        Color: |
+                            =RGBA(0, 18, 107, 1)
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: |-
                             =/*If(DropdownDeH.Selected.Value = 9,
                                 "text"
@@ -1861,6 +1910,8 @@
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 PaddingTop: =10
                 RadiusBottomLeft: =10
                 RadiusBottomRight: =10
@@ -2014,22 +2065,25 @@
 
                     Subtitle3_1 As label:
                         Align: =Align.Center
+                        Color: =If(ThisItem.estatusSolicitud.Value = "Rechazado", RGBA(225, 46, 70, 0.99), If(ThisItem.estatusSolicitud.Value = "Pendiente", RGBA(44, 103, 185, 1),If(ThisItem.estatusSolicitud.Value = "Aprobado", RGBA(26, 156, 30, 0.99))))
                         DisabledColor: =
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Verdana
-                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =21
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Normal)
+                        Height: =22
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =13
-                        Text: =ThisItem.estatusSolicitud.Value
+                        Size: =14
+                        Text: |+
+                            =ThisItem.estatusSolicitud.Value
+                            
                         VerticalAlign: =VerticalAlign.Top
-                        Width: =102
-                        X: =714
-                        Y: =52
+                        Width: =127
+                        X: =719
+                        Y: =51
                         ZIndex: =12
 
             ContainerVacacionesDetalles As groupContainer.verticalAutoLayoutContainer:
@@ -2510,8 +2564,8 @@
                 Container5_2 As groupContainer.horizontalAutoLayoutContainer:
                     BorderStyle: =BorderStyle.None
                     DropShadow: =DropShadow.None
+                    FillPortions: =0
                     Height: =80
-                    LayoutAlignItems: =LayoutAlignItems.Center
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutGap: =50
                     LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -2519,7 +2573,7 @@
                     LayoutMinWidth: =200
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    PaddingRight: =20
+                    PaddingLeft: =20
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
@@ -2529,7 +2583,6 @@
                     ZIndex: =1
 
                     Icon9 As icon.Add:
-                        AlignInContainer: =AlignInContainer.Center
                         Height: =45
                         Icon: =Icon.Reload
                         OnSelect: |-
@@ -2860,20 +2913,13 @@
                             */
                     ZIndex: =3
 
-                    Icon1 As icon.CheckBadge:
-                        Color: =RGBA(0, 16, 96, 1)
-                        Height: =100
-                        Icon: =Icon.CheckBadge
-                        PaddingBottom: =30
-                        Width: =100
-                        ZIndex: =1
-
                     Label4_1 As label:
-                        Align: =Align.Justify
+                        Align: =Align.Center
                         Font: =Font.Verdana
+                        Size: =12
                         Text: |-
                             ="Su entrada ha sido registrada correctamente con los siguientes datos: "
-                        Width: =400
+                        Width: =340
                         ZIndex: =2
 
                     Label5 As label:
@@ -3080,12 +3126,46 @@
                         Width: =230
                         ZIndex: =6
 
+                "MapES As 'Map (preview)'.pcfdataset":
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(0, 18, 107, 1)
+                    BorderRadius: =0
+                    Clustering: =true
+                    Compass: =false
+                    CurrentLocation: =true
+                    CurrentLocationLatitude: =Location.Latitude
+                    CurrentLocationLongitude: =Location.Longitude
+                    DefaultLocation: =false
+                    DefaultZoomLevel: =20
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =248
+                    InfoCards: ='Map.InfoCards'.None
+                    LayoutMinHeight: =400
+                    LayoutMinWidth: =200
+                    MapStyle: ='Map.MapStyle'.Road
+                    PinColor: =RGBA(50, 86, 160, 1)
+                    Pitch: =false
+                    SatelliteView: =false
+                    ShowRoutePins: =true
+                    ShowShapeLabels: =true
+                    ShowShapes: =true
+                    UseRouting: =false
+                    Visible: =true
+                    Width: =426
+                    X: =372
+                    Y: =168
+                    ZIndex: =7
+                    Zoom: =true
+
             Container4_1 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
                 Visible: =If(And(Gallery1.Selected.MenuID = 6,varEdit), true)
                 X: =40
                 Y: =40
@@ -3107,22 +3187,32 @@
 
                     Label13 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Height: =50
+                        Size: =14
                         Text: ="Hora de entrada"
+                        Width: =200
                         ZIndex: =1
 
                     Label14 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: ="Salida a comer"
                         ZIndex: =2
 
                     Label14_1 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: ="Regreso de comer"
-                        Width: =170
+                        Width: =200
                         ZIndex: =3
 
                     Label14_2 As label:
                         Align: =Align.Center
+                        FontWeight: =FontWeight.Bold
+                        Size: =14
                         Text: ="Hora de salida"
                         ZIndex: =4
 
@@ -3350,6 +3440,7 @@
                         ZIndex: =13
 
                     Subtitle3_6 As label:
+                        Color: =If(ThisItem.Estatus.Value = "Rechazado", RGBA(225, 46, 70, 0.99), If(ThisItem.Estatus.Value = "Pendiente", RGBA(44, 103, 185, 1),If(ThisItem.Estatus.Value = "Aprobado", RGBA(26, 156, 30, 0.99))))
                         DisplayMode: =DisplayMode.View
                         Font: =Font.Verdana
                         FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
