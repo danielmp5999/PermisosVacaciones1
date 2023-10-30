@@ -494,6 +494,186 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenSolicitarVacaciones",
+                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ScreenSolicitarVacaciones",
+                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.'Created By_DataCard1'.DataCardValue16.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.'Created By_DataCard1'.DataCardValue16.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenSolicitarVacaciones",
+                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.'Created By_DataCard1'.DataCardValue16"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusSolicitud_DataCard2.DataCardValue13.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusSolicitud_DataCard2.DataCardValue13.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenSolicitarVacaciones",
+                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusSolicitud_DataCard2.DataCardValue13"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusVacaciones_DataCard2.DataCardValue14.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusVacaciones_DataCard2.DataCardValue14.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenSolicitarVacaciones",
+                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusVacaciones_DataCard2.DataCardValue14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.reemplazo_DataCard2.DataCardValue15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.reemplazo_DataCard2.DataCardValue15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ScreenSolicitarVacaciones",
+                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.reemplazo_DataCard2.DataCardValue15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacaciones.Form1.desde_DataCard1.tbxVacaciones_Desde.AccessibleLabel"
                 }
               ],
@@ -1148,186 +1328,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ScreenSolicitarVacaciones",
-                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "ScreenSolicitarVacaciones",
-                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.Icon7"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.'Created By_DataCard1'.DataCardValue16.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.'Created By_DataCard1'.DataCardValue16.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ScreenSolicitarVacaciones",
-                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.'Created By_DataCard1'.DataCardValue16"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusSolicitud_DataCard2.DataCardValue13.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusSolicitud_DataCard2.DataCardValue13.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ScreenSolicitarVacaciones",
-                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusSolicitud_DataCard2.DataCardValue13"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusVacaciones_DataCard2.DataCardValue14.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusVacaciones_DataCard2.DataCardValue14.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ScreenSolicitarVacaciones",
-                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.estatusVacaciones_DataCard2.DataCardValue14"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.reemplazo_DataCard2.DataCardValue15.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.reemplazo_DataCard2.DataCardValue15.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "ScreenSolicitarVacaciones",
-                "type": "ScreenSolicitarVacaciones.Container1.Container2.ContainerVacacionesDetalles.FormViewer1.reemplazo_DataCard2.DataCardValue15"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
         },
         {
           "locations": [

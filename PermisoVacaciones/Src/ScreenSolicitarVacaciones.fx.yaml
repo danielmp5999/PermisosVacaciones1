@@ -2914,11 +2914,12 @@
                     ZIndex: =3
 
                     Label4_1 As label:
-                        Align: =Align.Justify
+                        Align: =Align.Center
                         Font: =Font.Verdana
+                        Size: =12
                         Text: |-
                             ="Su entrada ha sido registrada correctamente con los siguientes datos: "
-                        Width: =400
+                        Width: =340
                         ZIndex: =2
 
                     Label5 As label:
@@ -3128,8 +3129,9 @@
                 "MapES As 'Map (preview)'.pcfdataset":
                     AlignInContainer: =AlignInContainer.Stretch
                     BorderColor: =RGBA(0, 18, 107, 1)
+                    BorderRadius: =0
                     Clustering: =true
-                    Compass: =true
+                    Compass: =false
                     CurrentLocation: =true
                     CurrentLocationLatitude: =Location.Latitude
                     CurrentLocationLongitude: =Location.Longitude
@@ -3138,17 +3140,23 @@
                     DisplayMode: =DisplayMode.Edit
                     FillPortions: =1
                     Height: =248
+                    InfoCards: ='Map.InfoCards'.None
                     LayoutMinHeight: =400
                     LayoutMinWidth: =200
-                    MapStyle: ='Map.MapStyle'.GrayscaleDark
-                    PinColor: =RGBA(29, 114, 169, 1)
-                    Pitch: =true
+                    MapStyle: ='Map.MapStyle'.Road
+                    PinColor: =RGBA(50, 86, 160, 1)
+                    Pitch: =false
                     SatelliteView: =false
+                    ShowRoutePins: =true
+                    ShowShapeLabels: =true
+                    ShowShapes: =true
+                    UseRouting: =false
                     Visible: =true
                     Width: =426
                     X: =372
                     Y: =168
                     ZIndex: =7
+                    Zoom: =true
 
             Container4_1 As groupContainer.horizontalAutoLayoutContainer:
                 FillPortions: =0
