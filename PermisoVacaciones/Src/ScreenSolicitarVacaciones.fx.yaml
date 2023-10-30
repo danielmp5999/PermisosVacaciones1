@@ -2573,7 +2573,7 @@
                     LayoutMinWidth: =200
                     LayoutMode: =LayoutMode.Auto
                     LayoutWrap: =true
-                    PaddingLeft: =20
+                    PaddingLeft: =30
                     RadiusBottomLeft: =0
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
@@ -2946,6 +2946,14 @@
                         Width: =230
                         ZIndex: =5
 
+                    Label5_8 As label:
+                        Align: =Align.Center
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Text: ="Ubicación ->"
+                        Width: =230
+                        ZIndex: =6
+
                 ContainerMensajeS As groupContainer.horizontalAutoLayoutContainer:
                     BorderStyle: =BorderStyle.None
                     DropShadow: =DropShadow.None
@@ -3136,7 +3144,7 @@
                     CurrentLocationLatitude: =Location.Latitude
                     CurrentLocationLongitude: =Location.Longitude
                     DefaultLocation: =false
-                    DefaultZoomLevel: =20
+                    DefaultZoomLevel: =25
                     DisplayMode: =DisplayMode.Edit
                     FillPortions: =1
                     Height: =248
