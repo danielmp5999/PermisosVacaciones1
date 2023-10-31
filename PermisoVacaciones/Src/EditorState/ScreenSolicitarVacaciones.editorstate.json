@@ -3137,7 +3137,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button1",
-      "ParentIndex": 9,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7831,7 +7831,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container5_2",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8429,7 +8429,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container5_4",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8996,7 +8996,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerES",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9579,7 +9579,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerHome",
-      "ParentIndex": 2,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11109,7 +11109,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerMensajeE",
-      "ParentIndex": 4,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11431,7 +11431,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerMensajeEC",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11753,7 +11753,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerMensajeS",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12075,7 +12075,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerMensajeSC",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12611,7 +12611,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerPermisos",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12893,7 +12893,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerPermisosRegistro",
-      "ParentIndex": 7,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13195,7 +13195,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerVacaciones",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13499,7 +13499,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerVacacionesDetalles",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13792,7 +13792,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ContainerVacacionesRegistro",
-      "ParentIndex": 5,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14111,7 +14111,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataCard2",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24220,7 +24220,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "De",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26279,7 +26279,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DropdownDeH",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -26599,7 +26599,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DropdownDeM",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30543,7 +30543,7 @@
       "LayoutName": "vertical",
       "MetaDataIDKey": "",
       "Name": "estatusSolicitud_DataCard1",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -30850,7 +30850,7 @@
       "LayoutName": "vertical",
       "MetaDataIDKey": "",
       "Name": "estatusVacaciones_DataCard1",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -32965,7 +32965,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Header_ES",
-      "ParentIndex": 8,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -33375,7 +33375,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Header_Permisos",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -33785,7 +33785,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Header_RegistroVac",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34195,7 +34195,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Header_RegistroVac_1",
-      "ParentIndex": 7,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -34605,7 +34605,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Header_Vacaciones",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35353,7 +35353,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon3",
-      "ParentIndex": 1,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -37387,7 +37387,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconRefreshHorarioPersonal",
-      "ParentIndex": 3,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -37637,7 +37637,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IconRefreshPermisos",
-      "ParentIndex": 2,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -45147,7 +45147,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label3",
-      "ParentIndex": 0,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -55027,7 +55027,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "separador1",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
