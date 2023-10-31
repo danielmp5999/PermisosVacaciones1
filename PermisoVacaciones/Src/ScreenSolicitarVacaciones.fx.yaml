@@ -3144,7 +3144,7 @@
                     CurrentLocationLatitude: =Location.Latitude
                     CurrentLocationLongitude: =Location.Longitude
                     DefaultLocation: =false
-                    DefaultZoomLevel: =25
+                    DefaultZoomLevel: =60
                     DisplayMode: =DisplayMode.Edit
                     FillPortions: =1
                     Height: =248
